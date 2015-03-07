@@ -19,6 +19,8 @@
 		477712A31AAB93F70053D433 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A21AAB93F70053D433 /* MainViewController.m */; };
 		477712A61AAB95390053D433 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A51AAB95390053D433 /* UIColor+FlatColors.m */; };
 		477712A91AAB96040053D433 /* UIColor+RandomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A81AAB96040053D433 /* UIColor+RandomColors.m */; };
+		477712AB1AAB9E710053D433 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 477712AA1AAB9E710053D433 /* giphy.gif */; };
+		477712AF1AAB9FE00053D433 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712AE1AAB9FE00053D433 /* MainViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,9 @@
 		477712A51AAB95390053D433 /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
 		477712A71AAB96040053D433 /* UIColor+RandomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColors.h"; sourceTree = "<group>"; };
 		477712A81AAB96040053D433 /* UIColor+RandomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColors.m"; sourceTree = "<group>"; };
+		477712AA1AAB9E710053D433 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy.gif; sourceTree = "<group>"; };
+		477712AD1AAB9FE00053D433 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
+		477712AE1AAB9FE00053D433 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +116,7 @@
 		477712701AAB70850053D433 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				477712AA1AAB9E710053D433 /* giphy.gif */,
 				477712711AAB70850053D433 /* Info.plist */,
 				477712721AAB70850053D433 /* main.m */,
 			);
@@ -178,10 +184,20 @@
 		477712A01AAB93D20053D433 /* Secciones */ = {
 			isa = PBXGroup;
 			children = (
+				477712AC1AAB9FB20053D433 /* Cell */,
 				477712A11AAB93F70053D433 /* MainViewController.h */,
 				477712A21AAB93F70053D433 /* MainViewController.m */,
 			);
 			name = Secciones;
+			sourceTree = "<group>";
+		};
+		477712AC1AAB9FB20053D433 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				477712AD1AAB9FE00053D433 /* MainViewCell.h */,
+				477712AE1AAB9FE00053D433 /* MainViewCell.m */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4777127E1AAB70850053D433 /* LaunchScreen.xib in Resources */,
+				477712AB1AAB9E710053D433 /* giphy.gif in Resources */,
 				4777127B1AAB70850053D433 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +303,7 @@
 				477712A61AAB95390053D433 /* UIColor+FlatColors.m in Sources */,
 				477712761AAB70850053D433 /* AppDelegate.m in Sources */,
 				4777129D1AAB780B0053D433 /* UIImage+animatedGIF.m in Sources */,
+				477712AF1AAB9FE00053D433 /* MainViewCell.m in Sources */,
 				477712971AAB73C70053D433 /* Images.m in Sources */,
 				477712791AAB70850053D433 /* GrumpyGif.xcdatamodeld in Sources */,
 				477712A31AAB93F70053D433 /* MainViewController.m in Sources */,
