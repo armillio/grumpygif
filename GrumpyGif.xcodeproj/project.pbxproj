@@ -22,6 +22,7 @@
 		477712AB1AAB9E710053D433 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 477712AA1AAB9E710053D433 /* giphy.gif */; };
 		477712AF1AAB9FE00053D433 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712AE1AAB9FE00053D433 /* MainViewCell.m */; };
 		477712B61AABB12F0053D433 /* GrumpyGifStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712B41AABB12F0053D433 /* GrumpyGifStyleKit.m */; };
+		477712B91AABB87A0053D433 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712B81AABB87A0053D433 /* CoreDataStack.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		477712AE1AAB9FE00053D433 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
 		477712B41AABB12F0053D433 /* GrumpyGifStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrumpyGifStyleKit.m; sourceTree = "<group>"; };
 		477712B51AABB12F0053D433 /* GrumpyGifStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrumpyGifStyleKit.h; sourceTree = "<group>"; };
+		477712B71AABB87A0053D433 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
+		477712B81AABB87A0053D433 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,8 @@
 				477712961AAB73C70053D433 /* Images.m */,
 				477712981AAB73EA0053D433 /* Images+Model.h */,
 				477712991AAB73EA0053D433 /* Images+Model.m */,
+				477712B71AABB87A0053D433 /* CoreDataStack.h */,
+				477712B81AABB87A0053D433 /* CoreDataStack.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 				4777129A1AAB73EA0053D433 /* Images+Model.m in Sources */,
 				477712A91AAB96040053D433 /* UIColor+RandomColors.m in Sources */,
 				477712731AAB70850053D433 /* main.m in Sources */,
+				477712B91AABB87A0053D433 /* CoreDataStack.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
