@@ -23,6 +23,7 @@
 		477712AF1AAB9FE00053D433 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712AE1AAB9FE00053D433 /* MainViewCell.m */; };
 		477712B61AABB12F0053D433 /* GrumpyGifStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712B41AABB12F0053D433 /* GrumpyGifStyleKit.m */; };
 		477712B91AABB87A0053D433 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712B81AABB87A0053D433 /* CoreDataStack.m */; };
+		477712BE1AABBACE0053D433 /* BaseInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712BD1AABBACE0053D433 /* BaseInteractor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,8 @@
 		477712B51AABB12F0053D433 /* GrumpyGifStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrumpyGifStyleKit.h; sourceTree = "<group>"; };
 		477712B71AABB87A0053D433 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		477712B81AABB87A0053D433 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
+		477712BC1AABBACE0053D433 /* BaseInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInteractor.h; sourceTree = "<group>"; };
+		477712BD1AABBACE0053D433 /* BaseInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInteractor.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,8 @@
 		4777126F1AAB70850053D433 /* GrumpyGif */ = {
 			isa = PBXGroup;
 			children = (
+				477712BB1AABBA890053D433 /* UseCases */,
+				477712BA1AABBA7D0053D433 /* Providers */,
 				477712B31AABAF7D0053D433 /* Helpers */,
 				477712931AAB712C0053D433 /* AppDelegate */,
 				4777129F1AAB7D350053D433 /* Data */,
@@ -218,6 +223,22 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		477712BA1AABBA7D0053D433 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Providers;
+			sourceTree = "<group>";
+		};
+		477712BB1AABBA890053D433 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+				477712BC1AABBACE0053D433 /* BaseInteractor.h */,
+				477712BD1AABBACE0053D433 /* BaseInteractor.m */,
+			);
+			name = UseCases;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -323,6 +344,7 @@
 				4777129D1AAB780B0053D433 /* UIImage+animatedGIF.m in Sources */,
 				477712AF1AAB9FE00053D433 /* MainViewCell.m in Sources */,
 				477712971AAB73C70053D433 /* Images.m in Sources */,
+				477712BE1AABBACE0053D433 /* BaseInteractor.m in Sources */,
 				477712791AAB70850053D433 /* GrumpyGif.xcdatamodeld in Sources */,
 				477712B61AABB12F0053D433 /* GrumpyGifStyleKit.m in Sources */,
 				477712A31AAB93F70053D433 /* MainViewController.m in Sources */,
