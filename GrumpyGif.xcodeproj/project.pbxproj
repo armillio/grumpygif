@@ -18,6 +18,7 @@
 		4777129D1AAB780B0053D433 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 4777129C1AAB780B0053D433 /* UIImage+animatedGIF.m */; };
 		477712A31AAB93F70053D433 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A21AAB93F70053D433 /* MainViewController.m */; };
 		477712A61AAB95390053D433 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A51AAB95390053D433 /* UIColor+FlatColors.m */; };
+		477712A91AAB96040053D433 /* UIColor+RandomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A81AAB96040053D433 /* UIColor+RandomColors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		477712A21AAB93F70053D433 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		477712A41AAB95390053D433 /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatColors.h"; sourceTree = "<group>"; };
 		477712A51AAB95390053D433 /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
+		477712A71AAB96040053D433 /* UIColor+RandomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColors.h"; sourceTree = "<group>"; };
+		477712A81AAB96040053D433 /* UIColor+RandomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColors.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +161,8 @@
 				477712A51AAB95390053D433 /* UIColor+FlatColors.m */,
 				4777129B1AAB780B0053D433 /* UIImage+animatedGIF.h */,
 				4777129C1AAB780B0053D433 /* UIImage+animatedGIF.m */,
+				477712A71AAB96040053D433 /* UIColor+RandomColors.h */,
+				477712A81AAB96040053D433 /* UIColor+RandomColors.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -285,6 +290,7 @@
 				477712791AAB70850053D433 /* GrumpyGif.xcdatamodeld in Sources */,
 				477712A31AAB93F70053D433 /* MainViewController.m in Sources */,
 				4777129A1AAB73EA0053D433 /* Images+Model.m in Sources */,
+				477712A91AAB96040053D433 /* UIColor+RandomColors.m in Sources */,
 				477712731AAB70850053D433 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
