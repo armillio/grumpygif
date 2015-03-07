@@ -44,7 +44,8 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 
 -(void) loadImageData{
-    self.gifArray = @[@"giphy.gif"];
+    self.gifArray = @[@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",
+                      @"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif"];
 }
 
 -(void) loadCollectionView{
@@ -67,7 +68,7 @@ NSString *const kCellIdentifier = @"collectionCell";
     self.regularLayout.minimumInteritemSpacing = 0;
     self.regularLayout.minimumLineSpacing = 0;
     self.regularLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    self.regularLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.regularLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.regularLayout.itemSize = CGSizeMake(self.view.frame.size.width,
                                              (self.view.frame.size.height - self.statusBarHeight - self.navigationBarHeight) / 6);
 }
@@ -89,7 +90,6 @@ NSString *const kCellIdentifier = @"collectionCell";
     
     NSString *imageName = self.gifArray[indexPath.row];
     cell.imageView.image = [UIImage imageNamed:imageName];
-    //image = [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
     
     return cell;
 }
