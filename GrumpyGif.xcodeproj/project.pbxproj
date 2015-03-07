@@ -24,6 +24,8 @@
 		477712B61AABB12F0053D433 /* GrumpyGifStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712B41AABB12F0053D433 /* GrumpyGifStyleKit.m */; };
 		477712B91AABB87A0053D433 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712B81AABB87A0053D433 /* CoreDataStack.m */; };
 		477712BE1AABBACE0053D433 /* BaseInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712BD1AABBACE0053D433 /* BaseInteractor.m */; };
+		477712C11AABBBB50053D433 /* BaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712C01AABBBB50053D433 /* BaseProvider.m */; };
+		477712C51AABBCE10053D433 /* RequestHandlerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712C41AABBCE10053D433 /* RequestHandlerFactory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +71,11 @@
 		477712B81AABB87A0053D433 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		477712BC1AABBACE0053D433 /* BaseInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseInteractor.h; sourceTree = "<group>"; };
 		477712BD1AABBACE0053D433 /* BaseInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseInteractor.m; sourceTree = "<group>"; };
+		477712BF1AABBBB50053D433 /* BaseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseProvider.h; sourceTree = "<group>"; };
+		477712C01AABBBB50053D433 /* BaseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseProvider.m; sourceTree = "<group>"; };
+		477712C31AABBCE10053D433 /* RequestHandlerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandlerFactory.h; sourceTree = "<group>"; };
+		477712C41AABBCE10053D433 /* RequestHandlerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestHandlerFactory.m; sourceTree = "<group>"; };
+		477712C61AABBDC90053D433 /* RequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandler.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +96,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4709D9511AABC054001ABDDC /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
+		4709D9521AABC076001ABDDC /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = MainView;
+			sourceTree = "<group>";
+		};
 		477712641AAB70850053D433 = {
 			isa = PBXGroup;
 			children = (
@@ -110,14 +131,15 @@
 		4777126F1AAB70850053D433 /* GrumpyGif */ = {
 			isa = PBXGroup;
 			children = (
-				477712BB1AABBA890053D433 /* UseCases */,
-				477712BA1AABBA7D0053D433 /* Providers */,
-				477712B31AABAF7D0053D433 /* Helpers */,
 				477712931AAB712C0053D433 /* AppDelegate */,
-				4777129F1AAB7D350053D433 /* Data */,
-				477712A01AAB93D20053D433 /* Secciones */,
 				4777129E1AAB78120053D433 /* Categories */,
+				4777129F1AAB7D350053D433 /* Data */,
+				477712B31AABAF7D0053D433 /* Helpers */,
 				477712941AAB73B10053D433 /* Model */,
+				477712C21AABBCB00053D433 /* Networking */,
+				477712BA1AABBA7D0053D433 /* Providers */,
+				477712A01AAB93D20053D433 /* Secciones */,
+				477712BB1AABBA890053D433 /* UseCases */,
 				4777127A1AAB70850053D433 /* Images.xcassets */,
 				4777127C1AAB70850053D433 /* LaunchScreen.xib */,
 				477712701AAB70850053D433 /* Supporting Files */,
@@ -226,6 +248,9 @@
 		477712BA1AABBA7D0053D433 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				4709D9511AABC054001ABDDC /* MainView */,
+				477712BF1AABBBB50053D433 /* BaseProvider.h */,
+				477712C01AABBBB50053D433 /* BaseProvider.m */,
 			);
 			name = Providers;
 			sourceTree = "<group>";
@@ -233,10 +258,21 @@
 		477712BB1AABBA890053D433 /* UseCases */ = {
 			isa = PBXGroup;
 			children = (
+				4709D9521AABC076001ABDDC /* MainView */,
 				477712BC1AABBACE0053D433 /* BaseInteractor.h */,
 				477712BD1AABBACE0053D433 /* BaseInteractor.m */,
 			);
 			name = UseCases;
+			sourceTree = "<group>";
+		};
+		477712C21AABBCB00053D433 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				477712C61AABBDC90053D433 /* RequestHandler.h */,
+				477712C31AABBCE10053D433 /* RequestHandlerFactory.h */,
+				477712C41AABBCE10053D433 /* RequestHandlerFactory.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,11 +381,13 @@
 				477712AF1AAB9FE00053D433 /* MainViewCell.m in Sources */,
 				477712971AAB73C70053D433 /* Images.m in Sources */,
 				477712BE1AABBACE0053D433 /* BaseInteractor.m in Sources */,
+				477712C51AABBCE10053D433 /* RequestHandlerFactory.m in Sources */,
 				477712791AAB70850053D433 /* GrumpyGif.xcdatamodeld in Sources */,
 				477712B61AABB12F0053D433 /* GrumpyGifStyleKit.m in Sources */,
 				477712A31AAB93F70053D433 /* MainViewController.m in Sources */,
 				4777129A1AAB73EA0053D433 /* Images+Model.m in Sources */,
 				477712A91AAB96040053D433 /* UIColor+RandomColors.m in Sources */,
+				477712C11AABBBB50053D433 /* BaseProvider.m in Sources */,
 				477712731AAB70850053D433 /* main.m in Sources */,
 				477712B91AABB87A0053D433 /* CoreDataStack.m in Sources */,
 			);
@@ -534,6 +572,7 @@
 				4777128F1AAB70850053D433 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		477712901AAB70850053D433 /* Build configuration list for PBXNativeTarget "GrumpyGifTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +581,7 @@
 				477712921AAB70850053D433 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
