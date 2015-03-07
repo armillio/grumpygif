@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "UIColor+RandomColors.m"
 #import "MainViewCell.h"
+#import "GrumpyGifStyleKit.h"
 
 NSString *const kCellIdentifier = @"collectionCell";
 
@@ -25,6 +26,20 @@ NSString *const kCellIdentifier = @"collectionCell";
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [self setStatusAndNavigationHeightVariables];
+    [self loadSearchButton];
+}
+
+-(void) loadSearchButton{
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
+                                    initWithImage:[GrumpyGifStyleKit imageOfSearchWithFrame:CGRectMake(0, 0, 20, 20)]
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(loadSearchView)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+}
+
+-(void)loadSearchView{
+    
 }
 
 -(void) setStatusAndNavigationHeightVariables{
@@ -70,7 +85,7 @@ NSString *const kCellIdentifier = @"collectionCell";
     self.regularLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.regularLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     self.regularLayout.itemSize = CGSizeMake(self.view.frame.size.width,
-                                             (self.view.frame.size.height - self.statusBarHeight - self.navigationBarHeight) / 6);
+                                             (self.view.frame.size.height - self.statusBarHeight - self.navigationBarHeight) / 3.31);
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView
