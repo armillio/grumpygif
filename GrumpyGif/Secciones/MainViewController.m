@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-#import "UIColor+RandomColors.m"
+#import "UIColor+RandomColors.h"
 #import "MainViewCell.h"
 #import "GrumpyGifStyleKit.h"
 
