@@ -17,6 +17,7 @@
 		4777129A1AAB73EA0053D433 /* Images+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712991AAB73EA0053D433 /* Images+Model.m */; };
 		4777129D1AAB780B0053D433 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 4777129C1AAB780B0053D433 /* UIImage+animatedGIF.m */; };
 		477712A31AAB93F70053D433 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A21AAB93F70053D433 /* MainViewController.m */; };
+		477712A61AAB95390053D433 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A51AAB95390053D433 /* UIColor+FlatColors.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		4777129C1AAB780B0053D433 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
 		477712A11AAB93F70053D433 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		477712A21AAB93F70053D433 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		477712A41AAB95390053D433 /* UIColor+FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+FlatColors.h"; sourceTree = "<group>"; };
+		477712A51AAB95390053D433 /* UIColor+FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+FlatColors.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 		4777129E1AAB78120053D433 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				477712A41AAB95390053D433 /* UIColor+FlatColors.h */,
+				477712A51AAB95390053D433 /* UIColor+FlatColors.m */,
 				4777129B1AAB780B0053D433 /* UIImage+animatedGIF.h */,
 				4777129C1AAB780B0053D433 /* UIImage+animatedGIF.m */,
 			);
@@ -273,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				477712A61AAB95390053D433 /* UIColor+FlatColors.m in Sources */,
 				477712761AAB70850053D433 /* AppDelegate.m in Sources */,
 				4777129D1AAB780B0053D433 /* UIImage+animatedGIF.m in Sources */,
 				477712971AAB73C70053D433 /* Images.m in Sources */,
