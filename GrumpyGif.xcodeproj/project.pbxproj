@@ -78,8 +78,7 @@
 		4777126F1AAB70850053D433 /* GrumpyGif */ = {
 			isa = PBXGroup;
 			children = (
-				477712741AAB70850053D433 /* AppDelegate.h */,
-				477712751AAB70850053D433 /* AppDelegate.m */,
+				477712931AAB712C0053D433 /* AppDelegate */,
 				4777127A1AAB70850053D433 /* Images.xcassets */,
 				4777127C1AAB70850053D433 /* LaunchScreen.xib */,
 				477712771AAB70850053D433 /* GrumpyGif.xcdatamodeld */,
@@ -112,6 +111,15 @@
 				477712881AAB70850053D433 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		477712931AAB712C0053D433 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				477712741AAB70850053D433 /* AppDelegate.h */,
+				477712751AAB70850053D433 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
