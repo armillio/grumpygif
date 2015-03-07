@@ -16,6 +16,7 @@
 		477712971AAB73C70053D433 /* Images.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712961AAB73C70053D433 /* Images.m */; };
 		4777129A1AAB73EA0053D433 /* Images+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712991AAB73EA0053D433 /* Images+Model.m */; };
 		4777129D1AAB780B0053D433 /* UIImage+animatedGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 4777129C1AAB780B0053D433 /* UIImage+animatedGIF.m */; };
+		477712A31AAB93F70053D433 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A21AAB93F70053D433 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		477712991AAB73EA0053D433 /* Images+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Images+Model.m"; sourceTree = "<group>"; };
 		4777129B1AAB780B0053D433 /* UIImage+animatedGIF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+animatedGIF.h"; sourceTree = "<group>"; };
 		4777129C1AAB780B0053D433 /* UIImage+animatedGIF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+animatedGIF.m"; sourceTree = "<group>"; };
+		477712A11AAB93F70053D433 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		477712A21AAB93F70053D433 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +90,13 @@
 		4777126F1AAB70850053D433 /* GrumpyGif */ = {
 			isa = PBXGroup;
 			children = (
+				477712931AAB712C0053D433 /* AppDelegate */,
+				4777129F1AAB7D350053D433 /* Data */,
+				477712A01AAB93D20053D433 /* Secciones */,
 				4777129E1AAB78120053D433 /* Categories */,
 				477712941AAB73B10053D433 /* Model */,
-				477712931AAB712C0053D433 /* AppDelegate */,
 				4777127A1AAB70850053D433 /* Images.xcassets */,
 				4777127C1AAB70850053D433 /* LaunchScreen.xib */,
-				477712771AAB70850053D433 /* GrumpyGif.xcdatamodeld */,
 				477712701AAB70850053D433 /* Supporting Files */,
 			);
 			path = GrumpyGif;
@@ -151,6 +155,23 @@
 				4777129C1AAB780B0053D433 /* UIImage+animatedGIF.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		4777129F1AAB7D350053D433 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				477712771AAB70850053D433 /* GrumpyGif.xcdatamodeld */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		477712A01AAB93D20053D433 /* Secciones */ = {
+			isa = PBXGroup;
+			children = (
+				477712A11AAB93F70053D433 /* MainViewController.h */,
+				477712A21AAB93F70053D433 /* MainViewController.m */,
+			);
+			name = Secciones;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,6 +277,7 @@
 				4777129D1AAB780B0053D433 /* UIImage+animatedGIF.m in Sources */,
 				477712971AAB73C70053D433 /* Images.m in Sources */,
 				477712791AAB70850053D433 /* GrumpyGif.xcdatamodeld in Sources */,
+				477712A31AAB93F70053D433 /* MainViewController.m in Sources */,
 				4777129A1AAB73EA0053D433 /* Images+Model.m in Sources */,
 				477712731AAB70850053D433 /* main.m in Sources */,
 			);
