@@ -1,0 +1,10 @@
+*.swp
+build/
+DerivedData/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/*.iws
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.moved-aside
