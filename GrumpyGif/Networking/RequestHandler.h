@@ -13,8 +13,6 @@ typedef void (^ErrorBlock)(id data,NSError *error);
 
 @protocol RequestHandler <NSObject>
 @property (copy,nonatomic) NSString *baseDomain;
-@property (copy,nonatomic) NSDictionary *defaultParams;
+@property (copy,nonatomic) NSDictionary *baseParameters;
 - (void)GET:(NSString *)endpoint parameters:(NSDictionary *)parameters completion:(SuccessBlock)successBlock error:(ErrorBlock)errorBlock;
-- (void)POST:(NSString *)endpoint parameters:(NSDictionary *)parameters completion:(SuccessBlock)successBlock error:(ErrorBlock)errorBlock;
-
 @end

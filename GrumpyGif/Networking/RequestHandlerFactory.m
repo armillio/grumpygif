@@ -7,9 +7,10 @@
 //
 
 #import "RequestHandlerFactory.h"
+#import "GifCatcher.h"
 
 @implementation RequestHandlerFactory
 +(id<RequestHandler>)requestHandler{
-    return [[RequestHandlerFactory alloc] init];
+    return [[GifCatcher alloc] init];
 }
 @end

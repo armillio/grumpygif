@@ -11,5 +11,6 @@
 #import "RequestHandlerFactory.h"
 
 @interface BaseProvider : NSObject
+@property (strong,nonatomic) id<RequestHandler> requestHandler;
 @property (strong,nonatomic) NSManagedObjectContext *managedObjectContext;
 @end

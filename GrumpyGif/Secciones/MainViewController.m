@@ -10,6 +10,7 @@
 #import "UIColor+RandomColors.h"
 #import "MainViewCell.h"
 #import "GrumpyGifStyleKit.h"
+#import "MainViewInteractor.h"
 
 NSString *const kCellIdentifier = @"collectionCell";
 
@@ -39,7 +40,6 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 
 -(void)loadSearchView{
-    
 }
 
 -(void) setStatusAndNavigationHeightVariables{
@@ -59,8 +59,13 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 
 -(void) loadImageData{
-    self.gifArray = @[@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",
-                      @"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif"];
+    //self.gifArray = @[@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif", @"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif"];
+    
+    MainViewInteractor *loadMainViewInteractor =[[MainViewInteractor alloc] init];
+    [loadMainViewInteractor loadGifsWithCompletion:^(NSArray *gifs) {
+        self.gifArray = [gifs copy];
+        [self.collectionView reloadData];
+    }];
 }
 
 -(void) loadCollectionView{
