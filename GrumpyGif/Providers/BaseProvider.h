@@ -13,4 +13,5 @@
 @interface BaseProvider : NSObject
 @property (strong,nonatomic) id<RequestHandler> requestHandler;
 @property (strong,nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong,nonatomic) NSFetchedResultsController *fetchedResultsController;
 @end

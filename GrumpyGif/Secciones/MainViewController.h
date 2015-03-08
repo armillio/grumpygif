@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface MainViewController : UIViewController
-
+@property (strong,nonatomic) NSManagedObjectContext *managedObjectContext;
 @end

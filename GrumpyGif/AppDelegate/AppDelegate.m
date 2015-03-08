@@ -25,6 +25,7 @@ NSString *const kModelName = @"GrumpyGif";
     
     MainViewController *mainViewController = [[MainViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
+    mainViewController.managedObjectContext = self.coreDataStack.managedObjectContext;
     self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];

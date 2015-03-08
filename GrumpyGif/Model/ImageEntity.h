@@ -13,8 +13,8 @@
 @interface ImageEntity : NSManagedObject
 
 @property (nonatomic, retain) NSString * imageId;
-@property (nonatomic, retain) NSString * rated;
-@property (nonatomic, retain) NSString * source;
-@property (nonatomic, retain) NSString * url;
+@property (nonatomic, retain) NSString * imageRated;
+@property (nonatomic, retain) NSString * imageSource;
+@property (nonatomic, retain) NSString * imageUrl;
 
 @end

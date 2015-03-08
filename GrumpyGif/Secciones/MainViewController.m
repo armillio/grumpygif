@@ -5,12 +5,13 @@
 //  Created by Armando on 07/03/15.
 //  Copyright (c) 2015 Armando Carmona. All rights reserved.
 //
-
+#import "UIImage+animatedGIF.h"
 #import "MainViewController.h"
 #import "UIColor+RandomColors.h"
 #import "MainViewCell.h"
 #import "GrumpyGifStyleKit.h"
 #import "MainViewInteractor.h"
+#import "ImageEntity+Model.h"
 
 NSString *const kCellIdentifier = @"collectionCell";
 
@@ -58,13 +59,28 @@ NSString *const kCellIdentifier = @"collectionCell";
     [self loadCollectionCell];
 }
 
+-(NSArray *)gifArray{
+    if(_gifArray == nil){
+        _gifArray = [[NSArray alloc] init];
+    }
+    
+    return _gifArray;
+}
+
 -(void) loadImageData{
     //self.gifArray = @[@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif", @"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif"];
     
     MainViewInteractor *loadMainViewInteractor =[[MainViewInteractor alloc] init];
-    [loadMainViewInteractor loadGifsWithCompletion:^(NSArray *gifs) {
+    loadMainViewInteractor.managedObjectContext = self.managedObjectContext;
+    /*[loadMainViewInteractor loadGifsWithCompletion:^(NSArray *gifs) {
+        
+    }];*/
+    
+    [loadMainViewInteractor  loadGifsFromCoreDataWithCompletion:^(NSArray *gifs) {
         self.gifArray = [gifs copy];
         [self.collectionView reloadData];
+    } error:^(NSError *error) {
+        
     }];
 }
 
@@ -108,9 +124,13 @@ NSString *const kCellIdentifier = @"collectionCell";
         cell = [[MainViewCell alloc] init];
     }
     
-    NSString *imageName = self.gifArray[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:imageName];
-    
+    ImageEntity *gif = self.gifArray[indexPath.row];
+    //NSString *imageName = gif.imageUrl;
+    //cell.imageView.image = [UIImage animatedImageNamed:imageName duration:NSTimeIntervalSince1970];
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        //cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:gif.imageUrl]]];
+        cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif.imageUrl]];
+    });
     return cell;
 }
 

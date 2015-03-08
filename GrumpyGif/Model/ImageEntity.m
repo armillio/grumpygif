@@ -12,8 +12,8 @@
 @implementation ImageEntity
 
 @dynamic imageId;
-@dynamic rated;
-@dynamic source;
-@dynamic url;
+@dynamic imageRated;
+@dynamic imageSource;
+@dynamic imageUrl;
 
 @end

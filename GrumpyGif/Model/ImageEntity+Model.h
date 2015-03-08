@@ -8,6 +8,22 @@
 
 #import "ImageEntity.h"
 
-@interface ImageEntity (Model)
+extern NSString *const kImageEntity;
 
+extern NSString *const kImageId;
+extern NSString *const kImageUrl;
+extern NSString *const kImageRated;
+extern NSString *const kImageSource;
+
+extern NSString *const kGifId;
+extern NSString *const kGifImages;
+extern NSString *const kGifOriginal;
+extern NSString *const kGifURL;
+extern NSString *const kGifSource;
+extern NSString *const kGifRated;
+
+@interface ImageEntity (Model)
+//+(void)saveGifInMOC:(NSManagedObjectContext *)moc withDictionary:(NSDictionary *)gifs;
+-(ImageEntity *)saveGifInMOC:(NSManagedObjectContext *)moc withDictionary:(NSDictionary *)gifs;
++(NSFetchRequest *) fetchAllRequest;
 @end

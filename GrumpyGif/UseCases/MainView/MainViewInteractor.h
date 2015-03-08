@@ -12,4 +12,5 @@
 @interface MainViewInteractor : BaseInteractor
 @property (strong,nonatomic) MainViewProvider *mainViewProvider;
 - (void)loadGifsWithCompletion:(void(^)(NSArray *gifs))completion;
+- (void)loadGifsFromCoreDataWithCompletion:(void(^)(NSArray *gifs))completion error:(void(^)(NSError *error))error;
 @end
