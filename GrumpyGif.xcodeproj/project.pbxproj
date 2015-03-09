@@ -29,6 +29,8 @@
 		477712BE1AABBACE0053D433 /* BaseInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712BD1AABBACE0053D433 /* BaseInteractor.m */; };
 		477712C11AABBBB50053D433 /* BaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712C01AABBBB50053D433 /* BaseProvider.m */; };
 		477712C51AABBCE10053D433 /* RequestHandlerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712C41AABBCE10053D433 /* RequestHandlerFactory.m */; };
+		4796F8341AAD9390009CCB4C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4796F8331AAD9390009CCB4C /* SearchViewController.m */; };
+		4796F83B1AAD94CB009CCB4C /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4796F83A1AAD94CB009CCB4C /* SearchViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,9 @@
 		477712C31AABBCE10053D433 /* RequestHandlerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandlerFactory.h; sourceTree = "<group>"; };
 		477712C41AABBCE10053D433 /* RequestHandlerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestHandlerFactory.m; sourceTree = "<group>"; };
 		477712C61AABBDC90053D433 /* RequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandler.h; sourceTree = "<group>"; };
+		4796F8321AAD9390009CCB4C /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		4796F8331AAD9390009CCB4C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		4796F83A1AAD94CB009CCB4C /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -233,9 +238,8 @@
 		477712A01AAB93D20053D433 /* Secciones */ = {
 			isa = PBXGroup;
 			children = (
-				477712AC1AAB9FB20053D433 /* Cell */,
-				477712A11AAB93F70053D433 /* MainViewController.h */,
-				477712A21AAB93F70053D433 /* MainViewController.m */,
+				4796F8351AAD9397009CCB4C /* Main */,
+				4796F8361AAD93A0009CCB4C /* Search */,
 			);
 			path = Secciones;
 			sourceTree = "<group>";
@@ -288,6 +292,34 @@
 				4709D9541AABC37E001ABDDC /* GifCatcher.m */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		4796F8351AAD9397009CCB4C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				477712AC1AAB9FB20053D433 /* Cell */,
+				477712A11AAB93F70053D433 /* MainViewController.h */,
+				477712A21AAB93F70053D433 /* MainViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		4796F8361AAD93A0009CCB4C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4796F8371AAD93CC009CCB4C /* View */,
+				4796F8321AAD9390009CCB4C /* SearchViewController.h */,
+				4796F8331AAD9390009CCB4C /* SearchViewController.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		4796F8371AAD93CC009CCB4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4796F83A1AAD94CB009CCB4C /* SearchViewController.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -372,6 +404,7 @@
 			files = (
 				4777127E1AAB70850053D433 /* LaunchScreen.xib in Resources */,
 				477712AB1AAB9E710053D433 /* giphy.gif in Resources */,
+				4796F83B1AAD94CB009CCB4C /* SearchViewController.xib in Resources */,
 				4777127B1AAB70850053D433 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -396,6 +429,7 @@
 				4777129D1AAB780B0053D433 /* UIImage+animatedGIF.m in Sources */,
 				477712AF1AAB9FE00053D433 /* MainViewCell.m in Sources */,
 				4709D9671AABDC1E001ABDDC /* ImageEntity+Model.m in Sources */,
+				4796F8341AAD9390009CCB4C /* SearchViewController.m in Sources */,
 				4709D9611AABCCE0001ABDDC /* MainViewInteractor.m in Sources */,
 				477712BE1AABBACE0053D433 /* BaseInteractor.m in Sources */,
 				477712C51AABBCE10053D433 /* RequestHandlerFactory.m in Sources */,

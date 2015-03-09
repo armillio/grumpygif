@@ -25,7 +25,8 @@ NSString *const apiKey = @"dc6zaTOxFJmzC";
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config
                                                           delegate:nil
                                                      delegateQueue:NSOperationQueuePriorityNormal];
-    
+    //
+
     [[session dataTaskWithURL:[NSURL URLWithString:self.baseDomain]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
