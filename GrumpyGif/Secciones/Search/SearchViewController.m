@@ -32,7 +32,7 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
                                                                    (self.statusBarHeight + self.navigationBarHeight),
                                                                    self.view.bounds.size.width,
                                                                    44)];
-    [self.view addSubview:self.searchBar];
+    [self.searchCollectionView addSubview:self.searchBar];
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
@@ -56,9 +56,6 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
     
     self.searchCollectionView.backgroundColor = [UIColor randomColor];
     [self.view addSubview:self.searchCollectionView];
-}
--(void) loadImageData{
-    self.gifSearchArray = @[@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif", @"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif"];
 }
 -(void) loadCollectionCell{
     [self.searchCollectionView registerClass:[MainViewCell class] forCellWithReuseIdentifier:kSearchCellIdentifier];
