@@ -62,5 +62,10 @@ NSString *const kGifRated = @"rated";
     return fetchRequest;
 }
 
++(BOOL) checkIfImageIsAlreadyAddedToCoreData
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:kImageEntity];
+    return nil;
+}
 
 @end

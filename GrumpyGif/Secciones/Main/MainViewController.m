@@ -12,6 +12,7 @@
 #import "GrumpyGifStyleKit.h"
 #import "MainViewInteractor.h"
 #import "ImageEntity+Model.h"
+#import "SearchViewController.h"
 
 NSString *const kCellIdentifier = @"collectionCell";
 
@@ -30,24 +31,6 @@ NSString *const kCellIdentifier = @"collectionCell";
     [self setStatusAndNavigationHeightVariables];
     [self loadSearchButton];
 }
-
--(void) loadSearchButton{
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
-                                    initWithImage:[GrumpyGifStyleKit imageOfSearchWithFrame:CGRectMake(0, 0, 20, 20)]
-                                    style:UIBarButtonItemStylePlain
-                                    target:self
-                                    action:@selector(loadSearchView)];
-    self.navigationItem.rightBarButtonItem = rightButton;
-}
-
--(void)loadSearchView{
-}
-
--(void) setStatusAndNavigationHeightVariables{
-    self.statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
-    self.navigationBarHeight = self.navigationController.navigationBar.frame.size.height;
-}
-
 -(void)viewDidLoad{
     [super viewDidLoad];
     
@@ -58,15 +41,30 @@ NSString *const kCellIdentifier = @"collectionCell";
     [self loadCollectionView];
     [self loadCollectionCell];
 }
+-(void) loadSearchButton{
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc]
+                                    initWithImage:[GrumpyGifStyleKit imageOfSearchWithFrame:CGRectMake(0, 0, 20, 20)]
+                                    style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(loadSearchView)];
+    self.navigationItem.rightBarButtonItem = rightButton;
+}
 
+-(void)loadSearchView{
+    SearchViewController *svc = [[SearchViewController alloc] init];
+    [self.navigationController pushViewController:svc animated:YES];
+}
+
+-(void) setStatusAndNavigationHeightVariables{
+    self.statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
+    self.navigationBarHeight = self.navigationController.navigationBar.frame.size.height;
+}
 -(NSArray *)gifArray{
     if(_gifArray == nil){
         _gifArray = [[NSArray alloc] init];
     }
-    
     return _gifArray;
 }
-
 -(void) loadImageData{
     //self.gifArray = @[@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif", @"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif"];
     
@@ -83,7 +81,6 @@ NSString *const kCellIdentifier = @"collectionCell";
         
     }];
 }
-
 -(void) loadCollectionView{
     self.collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds
                                              collectionViewLayout:self.regularLayout];
@@ -93,11 +90,9 @@ NSString *const kCellIdentifier = @"collectionCell";
     self.collectionView.backgroundColor = [UIColor randomColor];
     [self.view addSubview:self.collectionView];
 }
-
 -(void) loadCollectionCell{
     [self.collectionView registerClass:[MainViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
 }
-
 -(void) loadLayout
 {
     self.regularLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -108,13 +103,11 @@ NSString *const kCellIdentifier = @"collectionCell";
     self.regularLayout.itemSize = CGSizeMake(self.view.frame.size.width,
                                              (self.view.frame.size.height - self.statusBarHeight - self.navigationBarHeight) / 3.31);
 }
-
 -(NSInteger)collectionView:(UICollectionView *)collectionView
     numberOfItemsInSection:(NSInteger)section{
 
     return self.gifArray.count;
 }
-
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
