@@ -10,32 +10,6 @@
 #import "ImageEntity+Model.h"
 
 @implementation MainViewProvider
-- (void)loadGifsWithSuccess:(void(^)(NSArray *gifs))successBlock error:(void(^)(NSError *error))errorBlock
-{
-    /*q - search query term or phrase
-     limit - (optional) number of results to return, maximum 100. Default 25.
-     offset - (optional) results offset, defaults to 0.
-     rating - limit results to those rated (y,g, pg, pg-13 or r).*/
-    
-    //NSDictionary *parameters=@{@"q":@"Grumpy+Cat"};
-
-    [self.requestHandler GET:@"/v1/gifs/search" parameters:nil completion:^(id data) {
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-
-            NSMutableArray *gifs = [NSMutableArray array];
-            for (NSDictionary *gifData in [data valueForKey:@"data"]) {
-
-                ImageEntity *gifEntity = [[ImageEntity alloc] saveGifInMOC:self.managedObjectContext withDictionary:gifData];
-                
-                [gifs addObject:gifEntity];
-            }
-            successBlock(gifs);
-        });
-    } error:^(id data, NSError *error) {
-        
-    }];
-}
 
 - (void)loadGifsFromCoreDataWithSuccess:(void(^)(NSArray *gifs))successBlock error:(void(^)(NSError *error))errorBlock{
     NSFetchRequest *fetchResults = [ImageEntity fetchAllRequest];

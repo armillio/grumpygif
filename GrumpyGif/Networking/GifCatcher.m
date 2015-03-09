@@ -19,7 +19,8 @@ NSString *const apiKey = @"dc6zaTOxFJmzC";
  completion:(SuccessBlock)successBlock error:(ErrorBlock)errorBlock{
     
     
-    self.baseDomain = @"http://api.giphy.com/v1/gifs/search?q=grumpy+cat&api_key=dc6zaTOxFJmzC";
+    self.baseDomain = @"http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=";
+    self.baseDomain = [NSString stringWithFormat:@"%@%@", self.baseDomain, parameters[@"q"]];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config

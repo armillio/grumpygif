@@ -10,10 +10,11 @@
 #import "SearchViewController.h"
 #import "ImageEntity+Model.h"
 #import "UIImage+animatedGIF.h"
+#import "SearchViewInteractor.h"
 
 NSString *const kSearchCellIdentifier = @"collectionCell";
 
-@interface SearchViewController() <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchControllerDelegate, UISearchDisplayDelegate, UISearchResultsUpdating>
+@interface SearchViewController() <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate>
 @property (strong, nonatomic) UICollectionView *searchCollectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *regularLayout;
 @property (strong, nonatomic) UISearchBar *searchBar;
@@ -27,18 +28,17 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
     [self setStatusAndNavigationHeightVariables];
 }
 - (void)loadSearchBar {
-    self.searchBar.delegate = self;
     self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0,
                                                                    (self.statusBarHeight + self.navigationBarHeight),
                                                                    self.view.bounds.size.width,
                                                                    44)];
+    self.searchBar.delegate = self;
     [self.searchCollectionView addSubview:self.searchBar];
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor randomColor];
     self.title = @"GrumpyGif";
-    [self loadImageData];
     [self loadLayout];
     [self loadCollectionView];
     [self loadCollectionCell];
@@ -84,16 +84,30 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
     
     ImageEntity *gif = self.gifSearchArray[indexPath.row];
     dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-       // cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif.imageUrl]];
-         cell.imageView.image = [UIImage imageNamed:self.gifSearchArray[indexPath.row]];
+       cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif.imageUrl]];
     });
     return cell;
 }
-- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
+    searchBar.showsCancelButton = YES;
+    searchBar.autocorrectionType = UITextAutocorrectionTypeDefault;
 }
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+- (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
+    searchBar.showsCancelButton = NO;
 }
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+-(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar{
+    NSDictionary *parameters=@{@"q":searchBar.text};
+    
+    __weak typeof(self) weakSelf = self;
+    SearchViewInteractor *loadSearchViewInteractor =[[SearchViewInteractor alloc] init];
+    loadSearchViewInteractor.managedObjectContext = self.managedObjectContext;
+    [loadSearchViewInteractor serachGifsWithCompletion:^(NSArray *gifs) {
+        __strong typeof(weakSelf) self = weakSelf;
+        self.gifSearchArray = [gifs copy];
+        [self.searchCollectionView reloadData];
+    } parameters:parameters error:^(NSError *error) {
+        
+    }];
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.gifSearchArray.count;

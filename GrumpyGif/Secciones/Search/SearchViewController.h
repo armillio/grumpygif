@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-
 @interface SearchViewController : UIViewController
-
+@property (strong,nonatomic) NSManagedObjectContext *managedObjectContext;
 @end

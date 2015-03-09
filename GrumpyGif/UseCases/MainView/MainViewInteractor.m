@@ -11,14 +11,6 @@
 
 @implementation MainViewInteractor
 
-- (void)loadGifsWithCompletion:(void(^)(NSArray *gifs))completion{
-    [self.mainViewProvider loadGifsWithSuccess:^(NSArray *gifs) {
-        completion(gifs);
-    } error:^(NSError *error) {
-        
-    }];
-}
-
 - (void)loadGifsFromCoreDataWithCompletion:(void(^)(NSArray *gifs))completion error:(void(^)(NSError *error))error{
     [self.mainViewProvider loadGifsFromCoreDataWithSuccess:^(NSArray *gifs) {
         completion(gifs);

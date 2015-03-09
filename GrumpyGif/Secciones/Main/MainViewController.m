@@ -73,8 +73,9 @@ NSString *const kCellIdentifier = @"collectionCell";
     /*[loadMainViewInteractor loadGifsWithCompletion:^(NSArray *gifs) {
         
     }];*/
-    
+    __weak typeof(self) weakSelf = self;
     [loadMainViewInteractor  loadGifsFromCoreDataWithCompletion:^(NSArray *gifs) {
+        __strong typeof(weakSelf) self = weakSelf;
         self.gifArray = [gifs copy];
         [self.collectionView reloadData];
     } error:^(NSError *error) {

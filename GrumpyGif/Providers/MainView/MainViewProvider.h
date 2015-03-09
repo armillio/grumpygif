@@ -9,6 +9,5 @@
 #import "BaseProvider.h"
 
 @interface MainViewProvider : BaseProvider
-- (void)loadGifsWithSuccess:(void(^)(NSArray *gifs))successBlock error:(void(^)(NSError *error))errorBlock;
 - (void)loadGifsFromCoreDataWithSuccess:(void(^)(NSArray *gifs))successBlock error:(void(^)(NSError *error))errorBlock;
 @end

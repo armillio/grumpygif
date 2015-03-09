@@ -304,12 +304,14 @@
 				<string>4709D9551AABC37E001ABDDC</string>
 				<string>477712791AAB70850053D433</string>
 				<string>4709D95B1AABCA7F001ABDDC</string>
+				<string>47A7546D1AAE5D3B005B06C9</string>
 				<string>477712B61AABB12F0053D433</string>
 				<string>477712A31AAB93F70053D433</string>
 				<string>477712A91AAB96040053D433</string>
 				<string>477712C11AABBBB50053D433</string>
 				<string>477712731AAB70850053D433</string>
 				<string>477712B91AABB87A0053D433</string>
+				<string>47A754701AAE5D54005B06C9</string>
 			</array>
 			<key>isa</key>
 			<string>PBXSourcesBuildPhase</string>
@@ -1354,6 +1356,7 @@
 		<dict>
 			<key>children</key>
 			<array>
+				<string>47A754691AAE5D0F005B06C9</string>
 				<string>4709D9511AABC054001ABDDC</string>
 				<string>477712BF1AABBBB50053D433</string>
 				<string>477712C01AABBBB50053D433</string>
@@ -1369,6 +1372,7 @@
 		<dict>
 			<key>children</key>
 			<array>
+				<string>47A7546A1AAE5D19005B06C9</string>
 				<string>4709D9521AABC076001ABDDC</string>
 				<string>477712BC1AABBACE0053D433</string>
 				<string>477712BD1AABBACE0053D433</string>
@@ -1570,6 +1574,104 @@
 			<string>Search</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
+		</dict>
+		<key>47A754691AAE5D0F005B06C9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>47A7546E1AAE5D54005B06C9</string>
+				<string>47A7546F1AAE5D54005B06C9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>SearchView</string>
+			<key>path</key>
+			<string>SearchView</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>47A7546A1AAE5D19005B06C9</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>47A7546B1AAE5D3B005B06C9</string>
+				<string>47A7546C1AAE5D3B005B06C9</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>SearchView</string>
+			<key>path</key>
+			<string>SearchView</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>47A7546B1AAE5D3B005B06C9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SearchViewInteractor.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>47A7546C1AAE5D3B005B06C9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SearchViewInteractor.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>47A7546D1AAE5D3B005B06C9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>47A7546C1AAE5D3B005B06C9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>47A7546E1AAE5D54005B06C9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>SearchViewProvider.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>47A7546F1AAE5D54005B06C9</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>SearchViewProvider.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>47A754701AAE5D54005B06C9</key>
+		<dict>
+			<key>fileRef</key>
+			<string>47A7546F1AAE5D54005B06C9</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
 		</dict>
 	</dict>
 	<key>rootObject</key>
