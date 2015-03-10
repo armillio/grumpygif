@@ -10,22 +10,19 @@
 #import "MainViewController.h"
 #import "UIColor+FlatColors.h"
 #import "CoreDataStack.h"
+#import "BaseProvider.h"
 
 @interface AppDelegate ()
 @property (strong,nonatomic) CoreDataStack *coreDataStack;
 @end
-NSString *const kModelName = @"GrumpyGif";
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.coreDataStack = [[CoreDataStack alloc] initWithModelName:kModelName];
-
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor flatPeterRiverColor];
     
     MainViewController *mainViewController = [[MainViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
-    mainViewController.managedObjectContext = self.coreDataStack.managedObjectContext;
     self.window.rootViewController = navigationController;
     
     [self.window makeKeyAndVisible];

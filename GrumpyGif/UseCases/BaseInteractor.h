@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
 
 @interface BaseInteractor : NSObject
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end

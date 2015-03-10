@@ -13,8 +13,5 @@
 
 
 @interface GrumpyGifStyleKit : NSObject
-
-// Generated Images
 + (UIImage*)imageOfSearchWithFrame: (CGRect)frame;
-
 @end

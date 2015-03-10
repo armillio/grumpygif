@@ -19,21 +19,22 @@ NSString *const apiKey = @"dc6zaTOxFJmzC";
  completion:(SuccessBlock)successBlock error:(ErrorBlock)errorBlock{
     
     
-    self.baseDomain = @"http://api.giphy.com/v1/gifs/search?q=grumpy+cat&api_key=dc6zaTOxFJmzC";
+    self.baseDomain = @"http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=";
+    self.baseDomain = [NSString stringWithFormat:@"%@%@",
+                       self.baseDomain,
+                       [parameters[@"q"] stringByReplacingOccurrencesOfString:@" " withString:@"+" ]];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config
                                                           delegate:nil
                                                      delegateQueue:NSOperationQueuePriorityNormal];
-    
+
     [[session dataTaskWithURL:[NSURL URLWithString:self.baseDomain]
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
-                NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
-                                                                           options:0
-                                                                             error:nil];
-                successBlock(jsonObject);
+                
+                successBlock(data);
             }] resume];
 }
 
