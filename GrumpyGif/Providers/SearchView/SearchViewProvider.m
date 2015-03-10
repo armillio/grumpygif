@@ -12,10 +12,6 @@
 
 @implementation SearchViewProvider
 - (void)searchGifsWithSuccess:(void(^)(NSArray *gifs))successBlock parameters:(NSDictionary *)parameters error:(void(^)(NSError *error))errorBlock{
-    /*q - search query term or phrase
-     limit - (optional) number of results to return, maximum 100. Default 25.
-     offset - (optional) results offset, defaults to 0.
-     rating - limit results to those rated (y,g, pg, pg-13 or r).*/
     [self.requestHandler GET:@"/v1/gifs/search" parameters:parameters completion:^(id data) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             NSMutableArray *gifs = [NSMutableArray array];

@@ -20,7 +20,9 @@ NSString *const apiKey = @"dc6zaTOxFJmzC";
     
     
     self.baseDomain = @"http://api.giphy.com/v1/gifs/search?api_key=dc6zaTOxFJmzC&q=";
-    self.baseDomain = [NSString stringWithFormat:@"%@%@", self.baseDomain, [parameters[@"q"] stringByReplacingOccurrencesOfString:@" " withString:@"+" ]];
+    self.baseDomain = [NSString stringWithFormat:@"%@%@",
+                       self.baseDomain,
+                       [parameters[@"q"] stringByReplacingOccurrencesOfString:@" " withString:@"+" ]];
     
     NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:config
