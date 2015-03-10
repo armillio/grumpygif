@@ -13,6 +13,7 @@
 #import "MainViewInteractor.h"
 #import "ImageEntity+Model.h"
 #import "SearchViewController.h"
+#import "UIImageView+WebCache.h"
 
 NSString *const kCellIdentifier = @"collectionCell";
 
@@ -110,7 +111,9 @@ NSString *const kCellIdentifier = @"collectionCell";
 
     ImageEntity *gif = self.gifArray[indexPath.row];
     dispatch_async(dispatch_get_main_queue(), ^{
-        cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif.imageUrl]];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif.imageUrl]
+                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        }];
     });
     return cell;
 }

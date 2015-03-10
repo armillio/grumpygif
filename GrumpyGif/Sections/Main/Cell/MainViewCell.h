@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ImageSave.h"
 @interface MainViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *imageView;
-@property (nonatomic, strong) id<ImageSave> delegate;
 @end

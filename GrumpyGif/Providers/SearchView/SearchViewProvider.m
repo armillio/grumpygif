@@ -12,7 +12,6 @@
 #import "ImageSave.h"
 
 @interface SearchViewProvider()<ImageSave>
-
 @end
 @implementation SearchViewProvider
 - (void)searchGifsWithSuccess:(void(^)(NSArray *gifs))successBlock parameters:(NSDictionary *)parameters error:(void(^)(NSError *error))errorBlock{

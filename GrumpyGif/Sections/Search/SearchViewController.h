@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ImageSave.h"
 @interface SearchViewController : UIViewController
 @property (strong,nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) id<ImageSave> delegate;
 @end
+
