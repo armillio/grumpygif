@@ -112,8 +112,10 @@ NSString *const kCellIdentifier = @"collectionCell";
     }
 
     ImageEntity *gif = self.gifArray[indexPath.row];
-    dispatch_async( dispatch_get_main_queue(), ^{
-        cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif.imageUrl]];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif.imageUrl]];
+        });
     });
     return cell;
 }

@@ -13,6 +13,9 @@
 #import "SearchViewInteractor.h"
 
 NSString *const kSearchCellIdentifier = @"collectionCell";
+NSString *const kDictionaryImages = @"images";
+NSString *const kDictionaryOriginal = @"original";
+NSString *const kDictionaryURL = @"url";
 
 @interface SearchViewController() <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate>
 @property (strong, nonatomic) UICollectionView *searchCollectionView;
@@ -80,10 +83,13 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
         cell = [[MainViewCell alloc] init];
     }
     
-    ImageEntity *gif = self.gifSearchArray[indexPath.row];
-    dispatch_async( dispatch_get_main_queue(), ^{
-       cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif.imageUrl]];
+    NSDictionary *gif = self.gifSearchArray[indexPath.row];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif[kDictionaryImages][kDictionaryOriginal][kDictionaryURL]]];
     });
+        
+        
     return cell;
 }
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
