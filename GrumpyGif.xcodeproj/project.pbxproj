@@ -33,7 +33,6 @@
 		4796F8341AAD9390009CCB4C /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4796F8331AAD9390009CCB4C /* SearchViewController.m */; };
 		47A7546D1AAE5D3B005B06C9 /* SearchViewInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7546C1AAE5D3B005B06C9 /* SearchViewInteractor.m */; };
 		47A754701AAE5D54005B06C9 /* SearchViewProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A7546F1AAE5D54005B06C9 /* SearchViewProvider.m */; };
-		47A754731AAE6EF7005B06C9 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 47A754721AAE6EF7005B06C9 /* ImageDownloader.m */; };
 		47FEB34F1AAF49B20008C8EB /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FEB32F1AAF49B20008C8EB /* MKAnnotationView+WebCache.m */; };
 		47FEB3501AAF49B20008C8EB /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FEB3311AAF49B20008C8EB /* NSData+ImageContentType.m */; };
 		47FEB3511AAF49B20008C8EB /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FEB3331AAF49B20008C8EB /* SDImageCache.m */; };
@@ -115,8 +114,6 @@
 		47A7546C1AAE5D3B005B06C9 /* SearchViewInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewInteractor.m; sourceTree = "<group>"; };
 		47A7546E1AAE5D54005B06C9 /* SearchViewProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewProvider.h; sourceTree = "<group>"; };
 		47A7546F1AAE5D54005B06C9 /* SearchViewProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewProvider.m; sourceTree = "<group>"; };
-		47A754711AAE6EF7005B06C9 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
-		47A754721AAE6EF7005B06C9 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 		47FEB32E1AAF49B20008C8EB /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		47FEB32F1AAF49B20008C8EB /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		47FEB3301AAF49B20008C8EB /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -320,8 +317,6 @@
 				47FEB32D1AAF49B20008C8EB /* SDWebImage */,
 				477712B51AABB12F0053D433 /* GrumpyGifStyleKit.h */,
 				477712B41AABB12F0053D433 /* GrumpyGifStyleKit.m */,
-				47A754711AAE6EF7005B06C9 /* ImageDownloader.h */,
-				47A754721AAE6EF7005B06C9 /* ImageDownloader.m */,
 				474324961AAEDABA00A8EA44 /* FeedParser.h */,
 				474324971AAEDABA00A8EA44 /* FeedParser.m */,
 			);
@@ -560,7 +555,6 @@
 				477712791AAB70850053D433 /* GrumpyGif.xcdatamodeld in Sources */,
 				47FEB3591AAF49B20008C8EB /* UIImage+GIF.m in Sources */,
 				47FEB35A1AAF49B20008C8EB /* UIImage+MultiFormat.m in Sources */,
-				47A754731AAE6EF7005B06C9 /* ImageDownloader.m in Sources */,
 				47FEB35B1AAF49B20008C8EB /* UIImage+WebP.m in Sources */,
 				47FEB3571AAF49B20008C8EB /* SDWebImagePrefetcher.m in Sources */,
 				4709D95B1AABCA7F001ABDDC /* MainViewProvider.m in Sources */,
