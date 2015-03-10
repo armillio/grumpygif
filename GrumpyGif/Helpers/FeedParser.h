@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface FeedParser : NSObject
--(NSArray *) parseDataToJson:(NSData *)data;
++(NSArray *) parseDataToJson:(NSData *)data;
 @end

@@ -66,7 +66,6 @@ NSString *const kCellIdentifier = @"collectionCell";
     return _gifArray;
 }
 -(void) loadImageData{
-    //self.gifArray = @[@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif", @"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif"];
     MainViewInteractor *loadMainViewInteractor =[[MainViewInteractor alloc] init];
     __weak typeof(self) weakSelf = self;
     [loadMainViewInteractor  loadGifsFromCoreDataWithCompletion:^(NSArray *gifs) {
@@ -74,7 +73,6 @@ NSString *const kCellIdentifier = @"collectionCell";
         self.gifArray = [gifs copy];
         [self.collectionView reloadData];
     } error:^(NSError *error) {
-        
     }];
 }
 -(void) loadCollectionView{
@@ -112,12 +110,9 @@ NSString *const kCellIdentifier = @"collectionCell";
     if(cell == nil){
         cell = [[MainViewCell alloc] init];
     }
-    
+
     ImageEntity *gif = self.gifArray[indexPath.row];
-    //NSString *imageName = gif.imageUrl;
-    //cell.imageView.image = [UIImage animatedImageNamed:imageName duration:NSTimeIntervalSince1970];
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        //cell.imageView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:gif.imageUrl]]];
+    dispatch_async( dispatch_get_main_queue(), ^{
         cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif.imageUrl]];
     });
     return cell;

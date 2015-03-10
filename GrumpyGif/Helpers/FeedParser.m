@@ -10,12 +10,10 @@
 
 @implementation FeedParser
 
--(NSArray *) parseDataToJson:(NSData *)data{
++(NSDictionary *) parseDataToJson:(NSData *)data{
     NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
                                                                options:0
                                                                  error:nil];
-    
-    
-    return jsonObject;
+    return [jsonObject valueForKey:@"data"];
 }
 @end

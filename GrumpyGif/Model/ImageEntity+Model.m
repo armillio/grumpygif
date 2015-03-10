@@ -50,8 +50,20 @@ NSString *const kGifRated = @"rated";
 
 #pragma mark - Fetchs
 
-+(NSFetchRequest *) fetchAllRequest
++(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc
 {
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:kImageEntity];
+    
+    NSError *error = nil;
+    NSArray *results = [moc executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"Error: %@\n%@", [error localizedDescription], [error userInfo]);
+        return nil;
+    }
+    
+    return results;
+}
++(NSFetchRequest *) fetchAllRequest{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:kImageEntity];
     
     fetchRequest.fetchBatchSize = 9;
