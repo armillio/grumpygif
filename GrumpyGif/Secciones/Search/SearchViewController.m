@@ -94,8 +94,15 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
 }
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     searchBar.showsCancelButton = NO;
+    [self getResultsFromAPI:searchBar];
 }
--(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar{
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    searchBar.text = @"";
+}
+- (void)getResultsFromAPI:(UISearchBar *)searchBar
+{
     NSDictionary *parameters=@{@"q":searchBar.text};
     
     __weak typeof(self) weakSelf = self;
@@ -108,6 +115,14 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
     } parameters:parameters error:^(NSError *error) {
         
     }];
+    [searchBar resignFirstResponder];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    [self getResultsFromAPI:searchBar];
+}
+-(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar{
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.gifSearchArray.count;
@@ -116,7 +131,6 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
     if(_gifSearchArray == nil){
         _gifSearchArray = [[NSArray alloc] init];
     }
-    
     return _gifSearchArray;
 }
 @end
