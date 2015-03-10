@@ -60,7 +60,6 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
 -(void) loadCollectionCell{
     [self.searchCollectionView registerClass:[MainViewCell class] forCellWithReuseIdentifier:kSearchCellIdentifier];
 }
-
 -(void) loadLayout
 {
     self.regularLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -72,7 +71,6 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
                                              (self.view.frame.size.height - self.statusBarHeight - self.navigationBarHeight) / 3.31);
 }
 -(void)updateSearchResultsForSearchController:(UISearchController *)searchController{
-    
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -117,7 +115,6 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
     }];
     [searchBar resignFirstResponder];
 }
-
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [self getResultsFromAPI:searchBar];

@@ -49,9 +49,9 @@ NSString *const kCellIdentifier = @"collectionCell";
                                     action:@selector(loadSearchView)];
     self.navigationItem.rightBarButtonItem = rightButton;
 }
-
 -(void)loadSearchView{
     SearchViewController *svc = [[SearchViewController alloc] init];
+    svc.managedObjectContext  = self.managedObjectContext;
     [self.navigationController pushViewController:svc animated:YES];
 }
 
@@ -67,12 +67,8 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 -(void) loadImageData{
     //self.gifArray = @[@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif", @"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif"];
-    
     MainViewInteractor *loadMainViewInteractor =[[MainViewInteractor alloc] init];
     loadMainViewInteractor.managedObjectContext = self.managedObjectContext;
-    /*[loadMainViewInteractor loadGifsWithCompletion:^(NSArray *gifs) {
-        
-    }];*/
     __weak typeof(self) weakSelf = self;
     [loadMainViewInteractor  loadGifsFromCoreDataWithCompletion:^(NSArray *gifs) {
         __strong typeof(weakSelf) self = weakSelf;
@@ -127,5 +123,4 @@ NSString *const kCellIdentifier = @"collectionCell";
     });
     return cell;
 }
-
 @end
