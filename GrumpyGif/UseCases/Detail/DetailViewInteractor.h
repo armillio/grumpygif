@@ -6,8 +6,9 @@
 //  Copyright (c) 2015 Armando Carmona. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseInteractor.h"
+@class DetailViewProvider;
 
-@interface DetailViewInteractor : NSObject
+@interface DetailViewInteractor : BaseInteractor
 
 @end

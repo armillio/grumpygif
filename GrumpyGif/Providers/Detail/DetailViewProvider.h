@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Armando Carmona. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "BaseProvider.h"
 
-@interface DetailViewProvider : NSObject
+@interface DetailViewProvider : BaseProvider
 
 @end
