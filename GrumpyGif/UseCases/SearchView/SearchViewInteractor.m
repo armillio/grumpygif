@@ -16,6 +16,9 @@
         
     }];
 }
+-(void)saveGifWithDictionary:(NSDictionary *)gifs{
+    [self.serachViewProvider saveGifWithDictionary:gifs];
+}
 -(SearchViewProvider *)serachViewProvider{
     if(_serachViewProvider == nil){
         _serachViewProvider = [[SearchViewProvider alloc] init];

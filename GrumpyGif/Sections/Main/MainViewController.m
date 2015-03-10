@@ -32,6 +32,10 @@ NSString *const kCellIdentifier = @"collectionCell";
     [self setStatusAndNavigationHeightVariables];
     [self loadSearchButton];
 }
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    [self loadImageData];
+}
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title = @"GrumpyGif";
@@ -50,7 +54,6 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 -(void)loadSearchView{
     SearchViewController *svc = [[SearchViewController alloc] init];
-    svc.managedObjectContext  = self.managedObjectContext;
     [self.navigationController pushViewController:svc animated:YES];
 }
 -(void) setStatusAndNavigationHeightVariables{

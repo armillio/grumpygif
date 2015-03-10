@@ -10,4 +10,5 @@
 
 @interface SearchViewProvider : BaseProvider
 - (void)searchGifsWithSuccess:(void(^)(NSArray *gifs))successBlock parameters:(NSDictionary *)parameters error:(void(^)(NSError *error))errorBlock;
+-(void)saveGifWithDictionary:(NSDictionary *)gifs;
 @end

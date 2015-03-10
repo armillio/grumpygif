@@ -109,7 +109,6 @@
 		477712C61AABBDC90053D433 /* RequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestHandler.h; sourceTree = "<group>"; };
 		4796F8321AAD9390009CCB4C /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		4796F8331AAD9390009CCB4C /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		47A298C41AAF3004002FB9B5 /* ImageSave.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageSave.h; sourceTree = "<group>"; };
 		47A7546B1AAE5D3B005B06C9 /* SearchViewInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewInteractor.h; sourceTree = "<group>"; };
 		47A7546C1AAE5D3B005B06C9 /* SearchViewInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewInteractor.m; sourceTree = "<group>"; };
 		47A7546E1AAE5D54005B06C9 /* SearchViewProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewProvider.h; sourceTree = "<group>"; };
@@ -276,7 +275,6 @@
 				4702508B1AAC65AF00C17DBB /* ImageEntity.m */,
 				4709D9651AABDC1E001ABDDC /* ImageEntity+Model.h */,
 				4709D9661AABDC1E001ABDDC /* ImageEntity+Model.m */,
-				47A298C41AAF3004002FB9B5 /* ImageSave.h */,
 			);
 			path = Model;
 			sourceTree = "<group>";

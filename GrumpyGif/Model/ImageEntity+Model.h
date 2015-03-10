@@ -26,4 +26,5 @@ extern NSString *const kGifRated;
 -(ImageEntity *)saveGifInMOC:(NSManagedObjectContext *)moc withDictionary:(NSDictionary *)gifs;
 +(NSFetchRequest *) fetchAllRequest;
 +(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc;
+-(void)saveGifWithDictionary:(NSDictionary *)gifs withMoc:(NSManagedObjectContext *)moc;
 @end

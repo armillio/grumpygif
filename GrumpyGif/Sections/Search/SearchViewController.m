@@ -27,6 +27,7 @@ NSString *const kDictionaryURL = @"url";
 @property (nonatomic, assign) CGFloat statusBarHeight;
 @property (nonatomic, assign) CGFloat navigationBarHeight;
 @property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic,strong) SearchViewInteractor *loadSearchViewInteractor;
 @end
 @implementation SearchViewController
 -(void)viewWillAppear:(BOOL)animated{
@@ -104,8 +105,7 @@ NSString *const kDictionaryURL = @"url";
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif[kDictionaryImages][kDictionaryFixedWidth][kDictionaryURL]]
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         }];
-    });
-    
+    });    
     UISwipeGestureRecognizer* swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipetoSave:)];
     swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;    
     [cell addGestureRecognizer: swipeGestureRecognizer];
@@ -114,7 +114,13 @@ NSString *const kDictionaryURL = @"url";
 -(void)swipetoSave:(id)sender{
     CGPoint tappedPoint = [sender locationInView:self.searchCollectionView];
     NSIndexPath *tappedCellPath = [self.searchCollectionView indexPathForItemAtPoint:tappedPoint];
-    [self.delegate saveGifWithDictionary:self.gifSearchArray[tappedCellPath.row]];
+    [self.loadSearchViewInteractor saveGifWithDictionary:[self.gifSearchArray[tappedCellPath.row] copy]];
+}
+-(SearchViewInteractor *)loadSearchViewInteractor{
+    if(_loadSearchViewInteractor == nil){
+        _loadSearchViewInteractor = [[SearchViewInteractor alloc] init];
+    }
+    return _loadSearchViewInteractor;
 }
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     searchBar.showsCancelButton = YES;
@@ -136,8 +142,7 @@ NSString *const kDictionaryURL = @"url";
 
     NSDictionary *parameters=@{@"q":searchBar.text};
     __weak typeof(self) weakSelf = self;
-    SearchViewInteractor *loadSearchViewInteractor =[[SearchViewInteractor alloc] init];
-    [loadSearchViewInteractor serachGifsWithCompletion:^(NSArray *gifs) {
+    [self.loadSearchViewInteractor serachGifsWithCompletion:^(NSArray *gifs) {
         __strong typeof(weakSelf) self = weakSelf;
         self.gifSearchArray = [gifs copy];
         [self.searchCollectionView reloadData];
