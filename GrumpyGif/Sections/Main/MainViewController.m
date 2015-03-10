@@ -14,6 +14,7 @@
 #import "ImageEntity+Model.h"
 #import "SearchViewController.h"
 #import "UIImageView+WebCache.h"
+#import "DetailViewController.h"
 
 NSString *const kCellIdentifier = @"collectionCell";
 
@@ -119,5 +120,10 @@ NSString *const kCellIdentifier = @"collectionCell";
         }];
     });
     return cell;
+}
+-(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    DetailViewController *dvc = [[DetailViewController alloc] initWithNibName:NSStringFromClass([DetailViewController class]) bundle:nil];
+    [self.navigationController pushViewController:dvc animated:YES];
+
 }
 @end
