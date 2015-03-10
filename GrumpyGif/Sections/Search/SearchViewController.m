@@ -92,29 +92,55 @@ NSString *const kDictionaryURL = @"url";
     self.regularLayout.itemSize = CGSizeMake(self.view.frame.size.width,
                                              (self.view.frame.size.height - self.statusBarHeight - self.navigationBarHeight) / 3.31);
 }
+- (void)addGestureRecognizerToCell:(MainViewCell *)cell
+{
+    UISwipeGestureRecognizer* swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipetoSave:)];
+    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;    
+    [cell addGestureRecognizer: swipeGestureRecognizer];
+}
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    MainViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier forIndexPath:indexPath];
-    
+    MainViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
+                                                                              forIndexPath:indexPath];
     if(cell == nil){
         cell = [[MainViewCell alloc] init];
     }
     NSDictionary *gif = self.gifSearchArray[indexPath.row];
     
+    __weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif[kDictionaryImages][kDictionaryFixedWidth][kDictionaryURL]]
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        }];
-    });    
-    UISwipeGestureRecognizer* swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipetoSave:)];
-    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;    
-    [cell addGestureRecognizer: swipeGestureRecognizer];
+                                     __strong typeof(weakSelf) self = weakSelf;
+                                     if(indexPath.row == 0){
+                                         [self animateCell:indexPath];
+                                         cell.backgroundColor = [UIColor randomColor];
+                                     }
+                                 }];
+    });
+    
+    [self addGestureRecognizerToCell:cell];
     return cell;
 }
 -(void)swipetoSave:(id)sender{
     CGPoint tappedPoint = [sender locationInView:self.searchCollectionView];
     NSIndexPath *tappedCellPath = [self.searchCollectionView indexPathForItemAtPoint:tappedPoint];
     [self.loadSearchViewInteractor saveGifWithDictionary:[self.gifSearchArray[tappedCellPath.row] copy]];
+    
+    [self animateCell:tappedCellPath];
+}
+- (void)animateCell:(NSIndexPath *)tappedCellPath {
+    CGFloat previousPosition = [self.searchCollectionView cellForItemAtIndexPath:tappedCellPath].layer.position.x;
+    CABasicAnimation *animation= [CABasicAnimation animationWithKeyPath:@"position.x"];
+    animation.toValue = @(previousPosition - 100);
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[animation];
+    group.duration = 0.6;
+    group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    group.delegate = self;
+    [[self.searchCollectionView cellForItemAtIndexPath:tappedCellPath].layer addAnimation:group forKey:@"groupAnimation"];
 }
 -(SearchViewInteractor *)loadSearchViewInteractor{
     if(_loadSearchViewInteractor == nil){
