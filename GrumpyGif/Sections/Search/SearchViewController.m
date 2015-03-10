@@ -24,6 +24,7 @@ NSString *const kDictionaryURL = @"url";
 @property (strong, nonatomic) NSArray *gifSearchArray;
 @property (nonatomic, assign) CGFloat statusBarHeight;
 @property (nonatomic, assign) CGFloat navigationBarHeight;
+@property (strong, nonatomic) UIActivityIndicatorView *activityIndicator;
 @end
 @implementation SearchViewController
 -(void)viewWillAppear:(BOOL)animated{
@@ -38,6 +39,22 @@ NSString *const kDictionaryURL = @"url";
     self.searchBar.delegate = self;
     [self.searchCollectionView addSubview:self.searchBar];
 }
+-(void)createActivityIndicator{
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator.frame = CGRectMake(self.view.bounds.size.width / 2,
+                                              self.view.bounds.size.height / 2,
+                                              20,
+                                              20);
+
+}
+- (void)startActivityIndicator {
+    [self.activityIndicator startAnimating];
+    self.activityIndicator.hidesWhenStopped = YES;
+}
+- (void)stopActivityIndicator {
+    [self.activityIndicator startAnimating];
+    self.activityIndicator.hidden = YES;
+}
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor randomColor];
@@ -46,6 +63,9 @@ NSString *const kDictionaryURL = @"url";
     [self loadCollectionView];
     [self loadCollectionCell];
     [self loadSearchBar];
+    [self createActivityIndicator];
+    //UIGestureRecognizer *swipeGesture = [[UISwipeGestureRecognizerDirectionLeft alloc] ini]
+    //UIGestureRecognizer *gesutureRecognizer = [[ UILongPressGestureRecognizer alloc] initWithTarget:self action:@ selector( handleLongPress:)];
 }
 -(void) setStatusAndNavigationHeightVariables{
     self.statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
@@ -56,7 +76,6 @@ NSString *const kDictionaryURL = @"url";
                                              collectionViewLayout:self.regularLayout];
     self.searchCollectionView.dataSource = self;
     self.searchCollectionView.delegate = self;
-    
     self.searchCollectionView.backgroundColor = [UIColor randomColor];
     [self.view addSubview:self.searchCollectionView];
 }
@@ -82,14 +101,10 @@ NSString *const kDictionaryURL = @"url";
     if(cell == nil){
         cell = [[MainViewCell alloc] init];
     }
-    
     NSDictionary *gif = self.gifSearchArray[indexPath.row];
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         cell.imageView.image = [UIImage animatedImageWithAnimatedGIFURL:[NSURL URLWithString:gif[kDictionaryImages][kDictionaryOriginal][kDictionaryURL]]];
     });
-        
-        
     return cell;
 }
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
@@ -100,21 +115,24 @@ NSString *const kDictionaryURL = @"url";
     searchBar.showsCancelButton = NO;
     [self getResultsFromAPI:searchBar];
 }
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-{
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [searchBar resignFirstResponder];
     searchBar.text = @"";
 }
 - (void)getResultsFromAPI:(UISearchBar *)searchBar
 {
+    [self startActivityIndicator];
+    self.gifSearchArray = nil;
+    [self.searchCollectionView reloadData];
+
     NSDictionary *parameters=@{@"q":searchBar.text};
-    
     __weak typeof(self) weakSelf = self;
     SearchViewInteractor *loadSearchViewInteractor =[[SearchViewInteractor alloc] init];
     [loadSearchViewInteractor serachGifsWithCompletion:^(NSArray *gifs) {
         __strong typeof(weakSelf) self = weakSelf;
         self.gifSearchArray = [gifs copy];
         [self.searchCollectionView reloadData];
+        [self stopActivityIndicator];
     } parameters:parameters error:^(NSError *error) {
         
     }];
@@ -124,7 +142,9 @@ NSString *const kDictionaryURL = @"url";
 {
     [self getResultsFromAPI:searchBar];
 }
--(void)searchBarResultsListButtonClicked:(UISearchBar *)searchBar{
+-(void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    //[self.selectedIndexPaths addObject:indexPath];
 }
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.gifSearchArray.count;

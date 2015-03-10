@@ -7,6 +7,7 @@
 //
 
 #import "MainViewCell.h"
+#import "ImageEntity+Model.h"
 
 @implementation MainViewCell
 
@@ -23,9 +24,16 @@
         _imageView.clipsToBounds = YES;
         
         [self.contentView addSubview:_imageView];
+        
+        UISwipeGestureRecognizer* swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipetoSave:)];
+        swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
+        [self.contentView addGestureRecognizer:swipeGestureRecognizer];
     }
     
     return self;
 }
 
+-(void)swipetoSave:(UISwipeGestureRecognizer *)swipeGestureRecognizer{
+    //[self.delegate saveGifwithDictionary:<#(NSDictionary *)#>];
+}
 @end

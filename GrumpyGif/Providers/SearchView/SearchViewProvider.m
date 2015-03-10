@@ -9,7 +9,11 @@
 #import "SearchViewProvider.h"
 #import "ImageEntity+Model.h"
 #import "FeedParser.h"
+#import "ImageSave.h"
 
+@interface SearchViewProvider()<ImageSave>
+
+@end
 @implementation SearchViewProvider
 - (void)searchGifsWithSuccess:(void(^)(NSArray *gifs))successBlock parameters:(NSDictionary *)parameters error:(void(^)(NSError *error))errorBlock{
     [self.requestHandler GET:@"/v1/gifs/search" parameters:parameters completion:^(id data) {
@@ -22,5 +26,9 @@
         });
     } error:^(id data, NSError *error) {
     }];
+}
+
+-(void)saveGifWithDictionary:(NSDictionary *)gifs{
+    [[ImageEntity alloc] saveGifInMOC:self.managedObjectContext withDictionary:gifs];
 }
 @end

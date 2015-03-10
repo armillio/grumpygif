@@ -33,9 +33,7 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
-    
     self.title = @"GrumpyGif";
-    
     [self loadImageData];
     [self loadLayout];
     [self loadCollectionView];
@@ -54,7 +52,6 @@ NSString *const kCellIdentifier = @"collectionCell";
     svc.managedObjectContext  = self.managedObjectContext;
     [self.navigationController pushViewController:svc animated:YES];
 }
-
 -(void) setStatusAndNavigationHeightVariables{
     self.statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     self.navigationBarHeight = self.navigationController.navigationBar.frame.size.height;
