@@ -7,8 +7,24 @@
 //
 
 #import "BaseProvider.h"
+#import "CoreDataStack.h"
+
+NSString *const kModelName = @"GrumpyGif";
+
+@interface BaseProvider()
+@property (strong,nonatomic) CoreDataStack *coreDataStack;
+@end
 
 @implementation BaseProvider
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        self.coreDataStack = [[CoreDataStack alloc] initWithModelName:kModelName];
+        self.managedObjectContext = self.coreDataStack.managedObjectContext;
+    }
+    return self;
+}
 - (id<RequestHandler>)requestHandler{
     if (_requestHandler == nil) {
         _requestHandler = [RequestHandlerFactory requestHandler];

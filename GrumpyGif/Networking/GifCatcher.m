@@ -31,10 +31,8 @@ NSString *const apiKey = @"dc6zaTOxFJmzC";
             completionHandler:^(NSData *data,
                                 NSURLResponse *response,
                                 NSError *error) {
-                NSDictionary *jsonObject = [NSJSONSerialization JSONObjectWithData:data
-                                                                           options:0
-                                                                             error:nil];
-                successBlock(jsonObject);
+                
+                successBlock(data);
             }] resume];
 }
 

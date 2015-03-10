@@ -8,6 +8,7 @@
 
 #import "SearchViewProvider.h"
 #import "ImageEntity+Model.h"
+#import "FeedParser.h"
 
 @implementation SearchViewProvider
 - (void)searchGifsWithSuccess:(void(^)(NSArray *gifs))successBlock parameters:(NSDictionary *)parameters error:(void(^)(NSError *error))errorBlock{
@@ -17,6 +18,7 @@
      rating - limit results to those rated (y,g, pg, pg-13 or r).*/
     __weak typeof(self) weakSelf = self;
     [self.requestHandler GET:@"/v1/gifs/search" parameters:parameters completion:^(id data) {
+        
         __strong typeof(weakSelf) self = weakSelf;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             

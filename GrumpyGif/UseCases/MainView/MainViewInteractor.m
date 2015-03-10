@@ -22,7 +22,6 @@
 -(MainViewProvider *)mainViewProvider{
     if(_mainViewProvider == nil){
         _mainViewProvider = [[MainViewProvider alloc] init];
-        _mainViewProvider.managedObjectContext = self.managedObjectContext;
     }
     return _mainViewProvider;
 }

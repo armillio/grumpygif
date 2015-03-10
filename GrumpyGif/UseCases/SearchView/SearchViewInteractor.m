@@ -19,7 +19,6 @@
 -(SearchViewProvider *)serachViewProvider{
     if(_serachViewProvider == nil){
         _serachViewProvider = [[SearchViewProvider alloc] init];
-        _serachViewProvider.managedObjectContext = self.managedObjectContext;
     }
     return _serachViewProvider;
 }

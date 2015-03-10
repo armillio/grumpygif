@@ -68,7 +68,6 @@ NSString *const kCellIdentifier = @"collectionCell";
 -(void) loadImageData{
     //self.gifArray = @[@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif", @"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif",@"giphy.gif"];
     MainViewInteractor *loadMainViewInteractor =[[MainViewInteractor alloc] init];
-    loadMainViewInteractor.managedObjectContext = self.managedObjectContext;
     __weak typeof(self) weakSelf = self;
     [loadMainViewInteractor  loadGifsFromCoreDataWithCompletion:^(NSArray *gifs) {
         __strong typeof(weakSelf) self = weakSelf;

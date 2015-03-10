@@ -105,7 +105,6 @@ NSString *const kSearchCellIdentifier = @"collectionCell";
     
     __weak typeof(self) weakSelf = self;
     SearchViewInteractor *loadSearchViewInteractor =[[SearchViewInteractor alloc] init];
-    loadSearchViewInteractor.managedObjectContext = self.managedObjectContext;
     [loadSearchViewInteractor serachGifsWithCompletion:^(NSArray *gifs) {
         __strong typeof(weakSelf) self = weakSelf;
         self.gifSearchArray = [gifs copy];
