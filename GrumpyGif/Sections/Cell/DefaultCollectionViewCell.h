@@ -20,5 +20,5 @@
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, strong) NSString *whoCalledMe;
 @property (nonatomic, strong) id<GestureProtocol> delegate;
-
+-(void) configureCell;
 @end

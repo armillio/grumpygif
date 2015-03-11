@@ -33,7 +33,7 @@ NSString *const kGifRated = @"rated";
     ImageEntity *gifImage;
     
     if(![self checkIfImageIsAlreadyAddedToCoreDataWithId:gifs[kGifId] inMOC:moc]){
-
+        
         gifImage = [NSEntityDescription insertNewObjectForEntityForName:kImageEntity inManagedObjectContext:moc];
         
         gifImage.imageId = gifs[kGifId];

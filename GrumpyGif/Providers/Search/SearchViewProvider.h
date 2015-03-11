@@ -7,6 +7,7 @@
 //
 
 #import "BaseProvider.h"
+@class ImageEntity;
 
 @interface SearchViewProvider : BaseProvider
 - (void)searchGifsWithSuccess:(void(^)(NSArray *gifs))successBlock parameters:(NSDictionary *)parameters error:(void(^)(NSError *error))errorBlock;

@@ -97,23 +97,23 @@ NSString *const kDictionaryURL = @"url";
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DefaultCollectionViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
                                                                               forIndexPath:indexPath];
+
     NSDictionary *gif = self.gifSearchArray[indexPath.row];
     cell.indexPath = indexPath;
     cell.whoCalledMe = NSStringFromClass([SearchViewController class]);
+    [cell configureCell];
     cell.delegate = self;
-
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif[kDictionaryImages][kDictionaryFixedWidth][kDictionaryURL]]
-                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                 }];
-    });
     
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif[kGifImages][kGifOriginal][kGifURL]]
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                             }];
     return cell;
 }
 -(void)swipeToSave:(id)sender{
     CGPoint tappedPoint = [sender locationInView:self.searchCollectionView];
     NSIndexPath *tappedCellPath = [self.searchCollectionView indexPathForItemAtPoint:tappedPoint];
-    [self.loadSearchViewInteractor saveGifWithDictionary:[self.gifSearchArray[tappedCellPath.row] copy]];
+    NSDictionary *gif = self.gifSearchArray[tappedCellPath.row];
+    [self.loadSearchViewInteractor saveGifWithDictionary:gif];
     //[self animateCell:tappedCellPath];
 }
 

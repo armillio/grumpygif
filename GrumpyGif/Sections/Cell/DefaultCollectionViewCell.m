@@ -8,6 +8,8 @@
 
 #import "DefaultCollectionViewCell.h"
 
+NSString *const kSearchCollectionView = @"SearchViewController";
+
 @implementation DefaultCollectionViewCell
 
 - (void)setupImageView
@@ -20,15 +22,15 @@
     
     [self.contentView addSubview:_imageView];
 }
--(instancetype)init{
-    self = [super init];
-    if(self){
+-(void) configureCell{
+    if([self.whoCalledMe isEqualToString:kSearchCollectionView]){
+        [self addGestureRecognizerToCell:self];
         
+        if(self.indexPath == 0){
+            [self animateCell:self andIndexPath:self.indexPath];
+        }
     }
-    
-    return self;
 }
-
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -36,33 +38,17 @@
     if (self)
     {
         [self setupImageView];
-        
-        [self addGestureRecognizerToCell:self];
-        
-        if([_whoCalledMe isEqualToString:@"SearchViewController"]){
-            if(_indexPath.row == 0){
-                [self animateCell:self andIndexPath:_indexPath];
-            }
-        }
-
     }
     return self;
 }
--(NSString *)whoCalledMe{
-    if(_whoCalledMe == nil){
-        _whoCalledMe = [[NSString alloc] init];
-    }
-    return _whoCalledMe;
-}
-- (void)addGestureRecognizerToCell:(DefaultCollectionViewCell *)cell
-{
+- (void)addGestureRecognizerToCell:(DefaultCollectionViewCell *)cell{
     UISwipeGestureRecognizer* swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeSave:)];
     swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;
     [cell addGestureRecognizer: swipeGestureRecognizer];
 }
 -(void) swipeSave:(id)sender{
-    [self.delegate swipeToSave:sender];
     [self animateCell:self andIndexPath:self.indexPath];
+    [self.delegate swipeToSave:sender];
 }
 - (void)animateCell:(DefaultCollectionViewCell *)cell andIndexPath:(NSIndexPath *)indexPath {
     CGFloat previousPosition = cell.layer.position.x;

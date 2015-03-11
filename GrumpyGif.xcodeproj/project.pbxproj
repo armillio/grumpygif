@@ -40,6 +40,7 @@
 		47DAD13C1AAF915000063AF1 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47DAD13A1AAF915000063AF1 /* DetailViewController.xib */; };
 		47DAD1411AAF91D400063AF1 /* DetailViewProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DAD1401AAF91D400063AF1 /* DetailViewProvider.m */; };
 		47DAD1441AAF91F400063AF1 /* DetailViewInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DAD1431AAF91F400063AF1 /* DetailViewInteractor.m */; };
+		47DE777F1AB0C448007653C3 /* Poyo.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DE777E1AB0C448007653C3 /* Poyo.m */; };
 		47FEB34F1AAF49B20008C8EB /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FEB32F1AAF49B20008C8EB /* MKAnnotationView+WebCache.m */; };
 		47FEB3501AAF49B20008C8EB /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FEB3311AAF49B20008C8EB /* NSData+ImageContentType.m */; };
 		47FEB3511AAF49B20008C8EB /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FEB3331AAF49B20008C8EB /* SDImageCache.m */; };
@@ -153,6 +154,8 @@
 		47DAD1401AAF91D400063AF1 /* DetailViewProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewProvider.m; sourceTree = "<group>"; };
 		47DAD1421AAF91F400063AF1 /* DetailViewInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewInteractor.h; sourceTree = "<group>"; };
 		47DAD1431AAF91F400063AF1 /* DetailViewInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewInteractor.m; sourceTree = "<group>"; };
+		47DE777D1AB0C448007653C3 /* Poyo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poyo.h; sourceTree = "<group>"; };
+		47DE777E1AB0C448007653C3 /* Poyo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Poyo.m; sourceTree = "<group>"; };
 		47FEB32E1AAF49B20008C8EB /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		47FEB32F1AAF49B20008C8EB /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		47FEB3301AAF49B20008C8EB /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -345,6 +348,8 @@
 				4702508B1AAC65AF00C17DBB /* ImageEntity.m */,
 				4709D9651AABDC1E001ABDDC /* ImageEntity+Model.h */,
 				4709D9661AABDC1E001ABDDC /* ImageEntity+Model.m */,
+				47DE777D1AB0C448007653C3 /* Poyo.h */,
+				47DE777E1AB0C448007653C3 /* Poyo.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -703,6 +708,7 @@
 				47FEB35A1AAF49B20008C8EB /* UIImage+MultiFormat.m in Sources */,
 				47FEB35B1AAF49B20008C8EB /* UIImage+WebP.m in Sources */,
 				47FEB3571AAF49B20008C8EB /* SDWebImagePrefetcher.m in Sources */,
+				47DE777F1AB0C448007653C3 /* Poyo.m in Sources */,
 				4709D95B1AABCA7F001ABDDC /* MainViewProvider.m in Sources */,
 				47A7546D1AAE5D3B005B06C9 /* SearchViewInteractor.m in Sources */,
 				477712B61AABB12F0053D433 /* GrumpyGifStyleKit.m in Sources */,

@@ -18,8 +18,6 @@
 
 NSString *const kCellIdentifier = @"collectionCell";
 
-
-
 @interface MainViewController() <UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *regularLayout;
@@ -41,8 +39,9 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
     self.title = @"GrumpyGif";
-    //[self loadImageData];
+    
     [self loadLayout];
     [self loadCollectionView];
     [self loadCollectionCell];
@@ -108,18 +107,15 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     DefaultCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
-
+        
     cell.indexPath = indexPath;
     cell.whoCalledMe = NSStringFromClass([MainViewController class]);
-    //[cell reloadInputViews];
+    [cell reloadInputViews];
     ImageEntity *gif = self.gifArray[indexPath.row];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif.imageUrl]
-                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        }];
-    });
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif.imageUrl]
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                             }];
     return cell;
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -128,6 +124,5 @@ NSString *const kCellIdentifier = @"collectionCell";
     dvc.detailImageView = selectedCell.imageView;
     
     [self.navigationController pushViewController:dvc animated:YES];
-
 }
 @end
