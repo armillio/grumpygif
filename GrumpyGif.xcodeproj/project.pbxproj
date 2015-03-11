@@ -247,7 +247,7 @@
 			children = (
 				470DE57D1AAFBFC600620350 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		474324991AAEF1FC00A8EA44 /* Sections */ = {
@@ -376,8 +376,7 @@
 				477712AD1AAB9FE00053D433 /* DefaultCollectionViewCell.h */,
 				477712AE1AAB9FE00053D433 /* DefaultCollectionViewCell.m */,
 			);
-			name = Cell;
-			path = Main/Cell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		477712B31AABAF7D0053D433 /* Helpers */ = {
@@ -767,7 +766,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ShareExtensions/Info.plist;
+				INFOPLIST_FILE = "ShareExtensions/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -779,7 +778,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = ShareExtensions/Info.plist;
+				INFOPLIST_FILE = "ShareExtensions/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

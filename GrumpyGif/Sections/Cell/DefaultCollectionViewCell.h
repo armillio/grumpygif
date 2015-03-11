@@ -18,6 +18,7 @@
 @interface DefaultCollectionViewCell : UICollectionViewCell
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) NSIndexPath *indexPath;
+@property (nonatomic, strong) NSString *whoCalledMe;
 @property (nonatomic, strong) id<GestureProtocol> delegate;
 
 @end

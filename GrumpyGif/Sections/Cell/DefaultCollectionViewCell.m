@@ -7,15 +7,6 @@
 //
 
 #import "DefaultCollectionViewCell.h"
-#import "MainViewController.h"
-#import "SearchViewController.h"
-
-@interface DefaultCollectionViewCell()
-
-@property (nonatomic, strong) MainViewController *mainViewController;
-@property (nonatomic, strong) SearchViewController *searchViewController;
-
-@end
 
 @implementation DefaultCollectionViewCell
 
@@ -29,6 +20,14 @@
     
     [self.contentView addSubview:_imageView];
 }
+-(instancetype)init{
+    self = [super init];
+    if(self){
+        
+    }
+    
+    return self;
+}
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -39,25 +38,21 @@
         [self setupImageView];
         
         [self addGestureRecognizerToCell:self];
-
-        if(_indexPath.row == 0){
-            [self animateCell:_indexPath];
+        
+        if([_whoCalledMe isEqualToString:@"SearchViewController"]){
+            if(_indexPath.row == 0){
+                [self animateCell:self andIndexPath:_indexPath];
+            }
         }
-    }
 
+    }
     return self;
 }
--(MainViewController *)mainViewController{
-    if(_mainViewController){
-        _mainViewController = [[MainViewController alloc] init];
+-(NSString *)whoCalledMe{
+    if(_whoCalledMe == nil){
+        _whoCalledMe = [[NSString alloc] init];
     }
-    return _mainViewController;
-}
--(SearchViewController *)searchViewController{
-    if(_searchViewController){
-        _searchViewController = [[SearchViewController alloc] init];
-    }
-    return _searchViewController;
+    return _whoCalledMe;
 }
 - (void)addGestureRecognizerToCell:(DefaultCollectionViewCell *)cell
 {
@@ -67,10 +62,10 @@
 }
 -(void) swipeSave:(id)sender{
     [self.delegate swipeToSave:sender];
-    [self animateCell:self.indexPath];
+    [self animateCell:self andIndexPath:self.indexPath];
 }
-- (void)animateCell:(NSIndexPath *)tappedCellPath {
-    CGFloat previousPosition = [self.searchViewController.searchCollectionView cellForItemAtIndexPath:tappedCellPath].layer.position.x;
+- (void)animateCell:(DefaultCollectionViewCell *)cell andIndexPath:(NSIndexPath *)indexPath {
+    CGFloat previousPosition = cell.layer.position.x;
     CABasicAnimation *animation= [CABasicAnimation animationWithKeyPath:@"position.x"];
     animation.toValue = @(previousPosition - 100);
     
@@ -79,7 +74,8 @@
     group.duration = 0.6;
     group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     group.delegate = self;
-    [[self.searchViewController.searchCollectionView cellForItemAtIndexPath:tappedCellPath].layer addAnimation:group forKey:@"groupAnimation"];
+    [cell.layer addAnimation:group forKey:@"groupAnimation"];
+    NSLog(@"Animated");
 }
 
 @end

@@ -20,6 +20,7 @@ NSString *const kDictionaryFixedWidth = @"fixed_width";
 NSString *const kDictionaryURL = @"url";
 
 @interface SearchViewController() <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, GestureProtocol>
+@property (strong, nonatomic) UICollectionView *searchCollectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *regularLayout;
 @property (strong, nonatomic) UISearchBar *searchBar;
 @property (strong, nonatomic) NSArray *gifSearchArray;
@@ -96,13 +97,11 @@ NSString *const kDictionaryURL = @"url";
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DefaultCollectionViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
                                                                               forIndexPath:indexPath];
-    if(cell == nil){
-        cell = [[DefaultCollectionViewCell alloc] init];
-    }
     NSDictionary *gif = self.gifSearchArray[indexPath.row];
-    cell.delegate = self;
     cell.indexPath = indexPath;
-    
+    cell.whoCalledMe = NSStringFromClass([SearchViewController class]);
+    cell.delegate = self;
+
     dispatch_async(dispatch_get_main_queue(), ^{
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif[kDictionaryImages][kDictionaryFixedWidth][kDictionaryURL]]
                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {

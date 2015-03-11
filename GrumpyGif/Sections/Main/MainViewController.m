@@ -110,11 +110,10 @@ NSString *const kCellIdentifier = @"collectionCell";
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     DefaultCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
-    
-    if(cell == nil){
-        cell = [[DefaultCollectionViewCell alloc] init];
-    }
 
+    cell.indexPath = indexPath;
+    cell.whoCalledMe = NSStringFromClass([MainViewController class]);
+    //[cell reloadInputViews];
     ImageEntity *gif = self.gifArray[indexPath.row];
     dispatch_async(dispatch_get_main_queue(), ^{
         [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif.imageUrl]
