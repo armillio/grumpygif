@@ -8,6 +8,8 @@
 
 #import "CoreDataStack.h"
 
+NSString *const kModelName = @"GrumpyGif";
+
 @interface CoreDataStack ()
 @property (copy, nonatomic) NSString *modelName;
 @end
@@ -19,6 +21,19 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
++ (instancetype)sharedInstance
+{
+    
+    static dispatch_once_t once;
+    static CoreDataStack *sharedInstance;
+    
+    dispatch_once(&once, ^{
+        sharedInstance = [[CoreDataStack alloc] initWithModelName:kModelName];
+    });
+    
+    return sharedInstance;
+}
 
 - (instancetype)initWithModelName:(NSString *)modelName {
     self = [super init];

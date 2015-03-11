@@ -9,23 +9,15 @@
 #import "BaseProvider.h"
 #import "CoreDataStack.h"
 
-NSString *const kModelName = @"GrumpyGif";
-
 @interface BaseProvider()
 @property (strong,nonatomic) CoreDataStack *coreDataStack;
 @end
 @implementation BaseProvider
 -(NSManagedObjectContext *)managedObjectContext{
     if(_managedObjectContext == nil){
-        _managedObjectContext = self.coreDataStack.managedObjectContext;
+        _managedObjectContext = [CoreDataStack sharedInstance].managedObjectContext;
     }
     return _managedObjectContext;
-}
--(CoreDataStack *)coreDataStack{
-    if(_coreDataStack == nil){
-        _coreDataStack = [[CoreDataStack alloc] initWithModelName:kModelName];
-    }
-    return _coreDataStack;
 }
 - (id<RequestHandler>)requestHandler{
     if (_requestHandler == nil) {
