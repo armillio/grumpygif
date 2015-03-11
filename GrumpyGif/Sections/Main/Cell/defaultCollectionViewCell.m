@@ -6,18 +6,18 @@
 //  Copyright (c) 2015 Armando Carmona. All rights reserved.
 //
 
-#import "defaultCollectionViewCell.h"
+#import "DefaultCollectionViewCell.h"
 #import "MainViewController.h"
 #import "SearchViewController.h"
 
-@interface defaultCollectionViewCell()
+@interface DefaultCollectionViewCell()
 
 @property (nonatomic, strong) MainViewController *mainViewController;
 @property (nonatomic, strong) SearchViewController *searchViewController;
 
 @end
 
-@implementation defaultCollectionViewCell
+@implementation DefaultCollectionViewCell
 
 - (void)setupImageView
 {
@@ -59,7 +59,7 @@
     }
     return _searchViewController;
 }
-- (void)addGestureRecognizerToCell:(defaultCollectionViewCell *)cell
+- (void)addGestureRecognizerToCell:(DefaultCollectionViewCell *)cell
 {
     UISwipeGestureRecognizer* swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeSave:)];
     swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;

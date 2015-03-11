@@ -8,7 +8,7 @@
 #import "UIImage+animatedGIF.h"
 #import "MainViewController.h"
 #import "UIColor+RandomColors.h"
-#import "defaultCollectionViewCell.h"
+#import "DefaultCollectionViewCell.h"
 #import "GrumpyGifStyleKit.h"
 #import "MainViewInteractor.h"
 #import "ImageEntity+Model.h"
@@ -89,7 +89,7 @@ NSString *const kCellIdentifier = @"collectionCell";
     [self.view addSubview:self.collectionView];
 }
 -(void) loadCollectionCell{
-    [self.collectionView registerClass:[defaultCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
+    [self.collectionView registerClass:[DefaultCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
 }
 -(void) loadLayout
 {
@@ -109,10 +109,10 @@ NSString *const kCellIdentifier = @"collectionCell";
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    defaultCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
+    DefaultCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
     
     if(cell == nil){
-        cell = [[defaultCollectionViewCell alloc] init];
+        cell = [[DefaultCollectionViewCell alloc] init];
     }
 
     ImageEntity *gif = self.gifArray[indexPath.row];
@@ -125,7 +125,7 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *dvc = [[DetailViewController alloc] initWithNibName:NSStringFromClass([DetailViewController class]) bundle:nil];
-    defaultCollectionViewCell *selectedCell = (defaultCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    DefaultCollectionViewCell *selectedCell = (DefaultCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     dvc.detailImageView = selectedCell.imageView;
     
     [self.navigationController pushViewController:dvc animated:YES];

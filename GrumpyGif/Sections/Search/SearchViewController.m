@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Armando Carmona. All rights reserved.
 //
 #import "UIColor+RandomColors.h"
-#import "defaultCollectionViewCell.h"
+#import "DefaultCollectionViewCell.h"
 #import "SearchViewController.h"
 #import "ImageEntity+Model.h"
 #import "UIImage+animatedGIF.h"
@@ -81,7 +81,7 @@ NSString *const kDictionaryURL = @"url";
     [self.view addSubview:self.searchCollectionView];
 }
 -(void) loadCollectionCell{
-    [self.searchCollectionView registerClass:[defaultCollectionViewCell class] forCellWithReuseIdentifier:kSearchCellIdentifier];
+    [self.searchCollectionView registerClass:[DefaultCollectionViewCell class] forCellWithReuseIdentifier:kSearchCellIdentifier];
 }
 -(void) loadLayout{
     self.regularLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -94,10 +94,10 @@ NSString *const kDictionaryURL = @"url";
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    defaultCollectionViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
+    DefaultCollectionViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
                                                                               forIndexPath:indexPath];
     if(cell == nil){
-        cell = [[defaultCollectionViewCell alloc] init];
+        cell = [[DefaultCollectionViewCell alloc] init];
     }
     NSDictionary *gif = self.gifSearchArray[indexPath.row];
     cell.delegate = self;
