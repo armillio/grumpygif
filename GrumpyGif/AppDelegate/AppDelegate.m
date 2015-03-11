@@ -8,18 +8,15 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
-#import "UIColor+FlatColors.h"
-#import "CoreDataStack.h"
-#import "BaseProvider.h"
 
 @interface AppDelegate ()
-@property (strong,nonatomic) CoreDataStack *coreDataStack;
+@property (nonatomic, strong) NSNotificationCenter *notificationCenter;
 @end
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.backgroundColor = [UIColor flatPeterRiverColor];
+    self.window.backgroundColor = [UIColor grayColor];
     
     MainViewController *mainViewController = [[MainViewController alloc] init];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
@@ -50,7 +47,6 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     // Saves changes in the application's managed object context before the application terminates.
-    [self.coreDataStack saveContext];
 }
 
 @end

@@ -8,5 +8,6 @@
 
 #import <UIKit/UIKit.h>
 @interface SearchViewController : UIViewController
+@property (strong, nonatomic) UICollectionView *searchCollectionView;
 @end
 

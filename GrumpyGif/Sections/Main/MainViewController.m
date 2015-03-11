@@ -8,7 +8,7 @@
 #import "UIImage+animatedGIF.h"
 #import "MainViewController.h"
 #import "UIColor+RandomColors.h"
-#import "MainViewCell.h"
+#import "defaultCollectionViewCell.h"
 #import "GrumpyGifStyleKit.h"
 #import "MainViewInteractor.h"
 #import "ImageEntity+Model.h"
@@ -17,6 +17,8 @@
 #import "DetailViewController.h"
 
 NSString *const kCellIdentifier = @"collectionCell";
+
+
 
 @interface MainViewController() <UINavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -87,7 +89,7 @@ NSString *const kCellIdentifier = @"collectionCell";
     [self.view addSubview:self.collectionView];
 }
 -(void) loadCollectionCell{
-    [self.collectionView registerClass:[MainViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
+    [self.collectionView registerClass:[defaultCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
 }
 -(void) loadLayout
 {
@@ -107,10 +109,10 @@ NSString *const kCellIdentifier = @"collectionCell";
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    MainViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
+    defaultCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
     
     if(cell == nil){
-        cell = [[MainViewCell alloc] init];
+        cell = [[defaultCollectionViewCell alloc] init];
     }
 
     ImageEntity *gif = self.gifArray[indexPath.row];
@@ -123,7 +125,7 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *dvc = [[DetailViewController alloc] initWithNibName:NSStringFromClass([DetailViewController class]) bundle:nil];
-    MainViewCell *selectedCell = (MainViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    defaultCollectionViewCell *selectedCell = (defaultCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
     dvc.detailImageView = selectedCell.imageView;
     
     [self.navigationController pushViewController:dvc animated:YES];

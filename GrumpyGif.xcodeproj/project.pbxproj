@@ -27,7 +27,7 @@
 		477712A61AAB95390053D433 /* UIColor+FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A51AAB95390053D433 /* UIColor+FlatColors.m */; };
 		477712A91AAB96040053D433 /* UIColor+RandomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712A81AAB96040053D433 /* UIColor+RandomColors.m */; };
 		477712AB1AAB9E710053D433 /* giphy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 477712AA1AAB9E710053D433 /* giphy.gif */; };
-		477712AF1AAB9FE00053D433 /* MainViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712AE1AAB9FE00053D433 /* MainViewCell.m */; };
+		477712AF1AAB9FE00053D433 /* defaultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712AE1AAB9FE00053D433 /* defaultCollectionViewCell.m */; };
 		477712B61AABB12F0053D433 /* GrumpyGifStyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712B41AABB12F0053D433 /* GrumpyGifStyleKit.m */; };
 		477712B91AABB87A0053D433 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712B81AABB87A0053D433 /* CoreDataStack.m */; };
 		477712BE1AABBACE0053D433 /* BaseInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712BD1AABBACE0053D433 /* BaseInteractor.m */; };
@@ -127,8 +127,8 @@
 		477712A71AAB96040053D433 /* UIColor+RandomColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RandomColors.h"; sourceTree = "<group>"; };
 		477712A81AAB96040053D433 /* UIColor+RandomColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RandomColors.m"; sourceTree = "<group>"; };
 		477712AA1AAB9E710053D433 /* giphy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy.gif; sourceTree = "<group>"; };
-		477712AD1AAB9FE00053D433 /* MainViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewCell.h; sourceTree = "<group>"; };
-		477712AE1AAB9FE00053D433 /* MainViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewCell.m; sourceTree = "<group>"; };
+		477712AD1AAB9FE00053D433 /* defaultCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defaultCollectionViewCell.h; sourceTree = "<group>"; };
+		477712AE1AAB9FE00053D433 /* defaultCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = defaultCollectionViewCell.m; sourceTree = "<group>"; };
 		477712B41AABB12F0053D433 /* GrumpyGifStyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrumpyGifStyleKit.m; sourceTree = "<group>"; };
 		477712B51AABB12F0053D433 /* GrumpyGifStyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrumpyGifStyleKit.h; sourceTree = "<group>"; };
 		477712B71AABB87A0053D433 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
@@ -253,6 +253,7 @@
 		474324991AAEF1FC00A8EA44 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				477712AC1AAB9FB20053D433 /* Cell */,
 				47DAD1371AAF912600063AF1 /* Detail */,
 				4796F8351AAD9397009CCB4C /* Main */,
 				4796F8361AAD93A0009CCB4C /* Search */,
@@ -372,10 +373,11 @@
 		477712AC1AAB9FB20053D433 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				477712AD1AAB9FE00053D433 /* MainViewCell.h */,
-				477712AE1AAB9FE00053D433 /* MainViewCell.m */,
+				477712AD1AAB9FE00053D433 /* defaultCollectionViewCell.h */,
+				477712AE1AAB9FE00053D433 /* defaultCollectionViewCell.m */,
 			);
-			path = Cell;
+			name = Cell;
+			path = Main/Cell;
 			sourceTree = "<group>";
 		};
 		477712B31AABAF7D0053D433 /* Helpers */ = {
@@ -429,7 +431,6 @@
 		4796F8351AAD9397009CCB4C /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				477712AC1AAB9FB20053D433 /* Cell */,
 				477712A11AAB93F70053D433 /* MainViewController.h */,
 				477712A21AAB93F70053D433 /* MainViewController.m */,
 			);
@@ -688,7 +689,7 @@
 				4777129D1AAB780B0053D433 /* UIImage+animatedGIF.m in Sources */,
 				47FEB3521AAF49B20008C8EB /* SDWebImageCompat.m in Sources */,
 				47FEB3551AAF49B20008C8EB /* SDWebImageDownloaderOperation.m in Sources */,
-				477712AF1AAB9FE00053D433 /* MainViewCell.m in Sources */,
+				477712AF1AAB9FE00053D433 /* defaultCollectionViewCell.m in Sources */,
 				4709D9671AABDC1E001ABDDC /* ImageEntity+Model.m in Sources */,
 				47DAD1441AAF91F400063AF1 /* DetailViewInteractor.m in Sources */,
 				47FEB35D1AAF49B20008C8EB /* UIImageView+WebCache.m in Sources */,
@@ -952,6 +953,7 @@
 				470DE5871AAFBFC600620350 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		477712681AAB70850053D433 /* Build configuration list for PBXProject "GrumpyGif" */ = {
 			isa = XCConfigurationList;

@@ -34,4 +34,7 @@ NSString *const kModelName = @"GrumpyGif";
     return _requestHandler;
 }
 
+//[self.coreDataStack saveContext];
+
+
 @end
