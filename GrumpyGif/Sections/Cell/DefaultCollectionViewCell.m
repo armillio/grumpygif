@@ -25,10 +25,6 @@ NSString *const kSearchCollectionView = @"SearchViewController";
 -(void) configureCell{
     if([self.whoCalledMe isEqualToString:kSearchCollectionView]){
         [self addGestureRecognizerToCell:self];
-        
-        if(self.indexPath == 0){
-            [self animateCell:self andIndexPath:self.indexPath];
-        }
     }
 }
 - (id)initWithFrame:(CGRect)frame
