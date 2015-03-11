@@ -40,7 +40,7 @@ NSString *const kCellIdentifier = @"collectionCell";
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.title = @"GrumpyGif";
-    [self loadImageData];
+    //[self loadImageData];
     [self loadLayout];
     [self loadCollectionView];
     [self loadCollectionCell];
