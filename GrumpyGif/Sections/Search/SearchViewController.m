@@ -115,7 +115,6 @@ NSString *const kDictionaryURL = @"url";
                                      __strong typeof(weakSelf) self = weakSelf;
                                      if(indexPath.row == 0){
                                          [self animateCell:indexPath];
-                                         cell.backgroundColor = [UIColor randomColor];
                                      }
                                  }];
     });

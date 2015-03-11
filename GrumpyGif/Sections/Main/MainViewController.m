@@ -121,8 +121,11 @@ NSString *const kCellIdentifier = @"collectionCell";
     });
     return cell;
 }
--(void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *dvc = [[DetailViewController alloc] initWithNibName:NSStringFromClass([DetailViewController class]) bundle:nil];
+    MainViewCell *selectedCell = (MainViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    dvc.detailImageView = selectedCell.imageView;
+    
     [self.navigationController pushViewController:dvc animated:YES];
 
 }

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
+                <outlet property="detailImageView" destination="Noy-au-5bL" id="5YA-Hf-rrZ"/>
+                <outlet property="shareImage" destination="Jpg-af-xlX" id="THi-yE-v5F"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,19 +16,27 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Noy-au-5bL">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Noy-au-5bL">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="300"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="600" id="Kwa-th-Bph"/>
-                        <constraint firstAttribute="height" constant="300" id="PwI-wQ-fBG"/>
+                        <constraint firstAttribute="height" constant="300" id="lvg-c1-99H"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpg-af-xlX">
+                    <rect key="frame" x="297" y="400" width="30" height="30"/>
+                    <color key="backgroundColor" red="0.99063974060000004" green="0.004551742026" blue="0.31092586300000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="shareButton:" destination="-1" eventType="touchUpInside" id="RJY-jX-vOm"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="Noy-au-5bL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5IV-9v-Wli"/>
-                <constraint firstItem="Noy-au-5bL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Bub-Ca-UX3"/>
-                <constraint firstAttribute="trailing" secondItem="Noy-au-5bL" secondAttribute="trailing" id="YcB-6Q-qxS"/>
+                <constraint firstAttribute="centerX" secondItem="Jpg-af-xlX" secondAttribute="centerX" constant="-12" id="B7x-cm-M6E"/>
+                <constraint firstItem="Noy-au-5bL" firstAttribute="top" secondItem="Jpg-af-xlX" secondAttribute="top" constant="-400" id="I5X-jn-NTu"/>
+                <constraint firstItem="Noy-au-5bL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dY2-Pz-dTB"/>
+                <constraint firstAttribute="trailing" secondItem="Noy-au-5bL" secondAttribute="trailing" id="fU2-3q-wk0"/>
+                <constraint firstItem="Noy-au-5bL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="w15-5F-wvS"/>
             </constraints>
         </view>
     </objects>

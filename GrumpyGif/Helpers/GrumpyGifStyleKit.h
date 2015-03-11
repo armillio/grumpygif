@@ -14,4 +14,5 @@
 
 @interface GrumpyGifStyleKit : NSObject
 + (UIImage*)imageOfSearchWithFrame: (CGRect)frame;
++ (UIImage*)imageOfShareWithFrame: (CGRect)frame;
 @end

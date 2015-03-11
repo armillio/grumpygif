@@ -12,8 +12,10 @@
 #import "UIColor+RandomColors.h"
 #import "ImageEntity+Model.h"
 #import "UIImageView+WebCache.h"
+#import "GrumpyGifStyleKit.h"
 
 @interface DetailViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *shareImage;
 
 @end
 
@@ -21,7 +23,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = [UIColor randomColor];
+    self.shareImage.imageView.image = [GrumpyGifStyleKit imageOfShareWithFrame:CGRectMake(0, 0, 30, 30)];
 }
-
+- (IBAction)shareButton:(UIButton *)sender {
+}
 
 @end
