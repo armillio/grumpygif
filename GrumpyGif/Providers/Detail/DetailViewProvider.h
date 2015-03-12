@@ -7,7 +7,7 @@
 //
 
 #import "BaseProvider.h"
-
+@class ImageEntity;
 @interface DetailViewProvider : BaseProvider
-
+-(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId;
 @end

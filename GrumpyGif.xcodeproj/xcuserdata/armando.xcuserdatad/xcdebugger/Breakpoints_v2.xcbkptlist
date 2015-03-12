@@ -19,13 +19,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GrumpyGif/Sections/Main/Cell/MainViewCell.m"
-            timestampString = "447768260.642899"
+            filePath = "GrumpyGif/Sections/Detail/DetailViewController.m"
+            timestampString = "447896525.431551"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "-initWithFrame:"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "-loadDetailView"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -35,13 +35,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "GrumpyGif/Categories/UIView+SuperView.m"
-            timestampString = "447784893.896601"
+            filePath = "GrumpyGif/Sections/Detail/DetailViewController.m"
+            timestampString = "447897270.781025"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "-findSuperViewWithClass:"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

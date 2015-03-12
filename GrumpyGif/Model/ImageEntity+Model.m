@@ -29,9 +29,9 @@ NSString *const kGifRated = @"rated";
 
 @implementation ImageEntity (Model)
 
--(void)saveGifInMOC:(NSManagedObjectContext *)moc withEntity:(Ponso *)gifs{
+-(void)saveGiWithMOC:(NSManagedObjectContext *)moc withEntity:(Ponso *)gifs{
     
-    if(![self checkIfImageIsAlreadyAddedToCoreDataWithId:gifs.imageId inMOC:moc]){
+    if(![self checkIfImageIsAlreadyAddedToCoreDataWithId:gifs.imageId withMoc:moc]){
 
         [self transformPonsoToImageEntity:gifs withMoc:moc];
 
@@ -43,9 +43,10 @@ NSString *const kGifRated = @"rated";
     }
 }
 -(void)saveGifWithEntity:(Ponso *)gifs withMoc:(NSManagedObjectContext *)moc{
-    [self saveGifInMOC:moc withEntity:gifs];
+    [self saveGiWithMOC:moc withEntity:gifs];
 }
--(void)transformPonsoToImageEntity:(Ponso *)gif withMoc:(NSManagedObjectContext *)moc{
+-(void)transformPonsoToImageEntity:(Ponso *)gif
+                           withMoc:(NSManagedObjectContext *)moc{
     
     ImageEntity *gifImage = [NSEntityDescription insertNewObjectForEntityForName:kImageEntity inManagedObjectContext:moc];
     
@@ -55,7 +56,6 @@ NSString *const kGifRated = @"rated";
     gifImage.imageUrl = gif.imageUrl;
 }
 #pragma mark - Fetchs
-
 +(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc
 {
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:kImageEntity];
@@ -79,8 +79,17 @@ NSString *const kGifRated = @"rated";
     
     return fetchRequest;
 }
-
--(BOOL) checkIfImageIsAlreadyAddedToCoreDataWithId:(NSString *)imageId inMOC:(NSManagedObjectContext*)moc{
+-(BOOL) checkIfImageIsAlreadyAddedToCoreDataWithId:(NSString *)imageId
+                                             withMoc:(NSManagedObjectContext*)moc{
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kImageEntity];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = %@", kImageId, imageId];
+    NSError *error;
+    NSArray *fetchResult=[moc executeFetchRequest:fetchRequest error:&error];
+    
+    return fetchResult.count?[fetchResult firstObject]:nil;
+}
+-(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId
+                                          withMoc:(NSManagedObjectContext*)moc{
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kImageEntity];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = %@", kImageId, imageId];
     NSError *error;

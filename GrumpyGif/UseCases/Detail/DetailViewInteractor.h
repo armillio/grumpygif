@@ -8,7 +8,9 @@
 
 #import "BaseInteractor.h"
 @class DetailViewProvider;
+@class ImageEntity;
 
 @interface DetailViewInteractor : BaseInteractor
-
+@property (strong,nonatomic) DetailViewProvider *detailViewProvider;
+-(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId;
 @end

@@ -19,6 +19,7 @@
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) NSIndexPath *indexPath;
 @property (nonatomic, strong) NSString *whoCalledMe;
+@property (nonatomic, strong) NSString *imageId;
 @property (nonatomic, strong) id<GestureProtocol> delegate;
 -(void) configureCell;
 @end

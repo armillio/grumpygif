@@ -113,6 +113,7 @@ NSString *const kCellIdentifier = @"collectionCell";
     cell.whoCalledMe = NSStringFromClass([MainViewController class]);
     [cell reloadInputViews];
     ImageEntity *gif = self.gifArray[indexPath.row];
+    cell.imageId = gif.imageId;
     [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif.imageUrl]
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                              }];
@@ -121,7 +122,7 @@ NSString *const kCellIdentifier = @"collectionCell";
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     DetailViewController *dvc = [[DetailViewController alloc] initWithNibName:NSStringFromClass([DetailViewController class]) bundle:nil];
     DefaultCollectionViewCell *selectedCell = (DefaultCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    dvc.detailImageView = selectedCell.imageView;
+    dvc.imageId = selectedCell.imageId;
     
     [self.navigationController pushViewController:dvc animated:YES];
 }

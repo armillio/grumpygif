@@ -28,4 +28,6 @@ extern NSString *const kGifRated;
 +(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc;
 -(void)saveGifWithEntity:(Ponso *)gifs
                  withMoc:(NSManagedObjectContext *)moc;
+-(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId
+                                          withMoc:(NSManagedObjectContext*)moc;
 @end

@@ -7,7 +7,12 @@
 //
 
 #import "DetailViewProvider.h"
+#import "ImageEntity+Model.h"
 
 @implementation DetailViewProvider
-
+-(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId{
+    
+    return [[ImageEntity alloc] getDataForDetailViewWithImageId:imageId
+                                                        withMoc:self.managedObjectContext];
+}
 @end

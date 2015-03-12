@@ -57,7 +57,6 @@ NSString *const kSearchCollectionView = @"SearchViewController";
     group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
     group.delegate = self;
     [cell.layer addAnimation:group forKey:@"groupAnimation"];
-    NSLog(@"Animated");
 }
 
 @end
