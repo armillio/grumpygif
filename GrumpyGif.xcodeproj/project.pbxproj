@@ -12,9 +12,6 @@
 		4709D95B1AABCA7F001ABDDC /* MainViewProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 4709D95A1AABCA7F001ABDDC /* MainViewProvider.m */; };
 		4709D9611AABCCE0001ABDDC /* MainViewInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 4709D9601AABCCE0001ABDDC /* MainViewInteractor.m */; };
 		4709D9671AABDC1E001ABDDC /* ImageEntity+Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 4709D9661AABDC1E001ABDDC /* ImageEntity+Model.m */; };
-		470DE5801AAFBFC600620350 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470DE57F1AAFBFC600620350 /* ShareViewController.m */; };
-		470DE5821AAFBFC600620350 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 470DE5811AAFBFC600620350 /* MainInterface.storyboard */; };
-		470DE5851AAFBFC600620350 /* ShareExtensions.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 470DE57A1AAFBFC600620350 /* ShareExtensions.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		474324981AAEDABA00A8EA44 /* FeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 474324971AAEDABA00A8EA44 /* FeedParser.m */; };
 		477712731AAB70850053D433 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712721AAB70850053D433 /* main.m */; };
 		477712761AAB70850053D433 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 477712751AAB70850053D433 /* AppDelegate.m */; };
@@ -40,7 +37,7 @@
 		47DAD13C1AAF915000063AF1 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 47DAD13A1AAF915000063AF1 /* DetailViewController.xib */; };
 		47DAD1411AAF91D400063AF1 /* DetailViewProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DAD1401AAF91D400063AF1 /* DetailViewProvider.m */; };
 		47DAD1441AAF91F400063AF1 /* DetailViewInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DAD1431AAF91F400063AF1 /* DetailViewInteractor.m */; };
-		47DE777F1AB0C448007653C3 /* Poyo.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DE777E1AB0C448007653C3 /* Poyo.m */; };
+		47DE777F1AB0C448007653C3 /* Ponso.m in Sources */ = {isa = PBXBuildFile; fileRef = 47DE777E1AB0C448007653C3 /* Ponso.m */; };
 		47FEB34F1AAF49B20008C8EB /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FEB32F1AAF49B20008C8EB /* MKAnnotationView+WebCache.m */; };
 		47FEB3501AAF49B20008C8EB /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FEB3311AAF49B20008C8EB /* NSData+ImageContentType.m */; };
 		47FEB3511AAF49B20008C8EB /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 47FEB3331AAF49B20008C8EB /* SDImageCache.m */; };
@@ -60,13 +57,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		470DE5831AAFBFC600620350 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 477712651AAB70850053D433 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 470DE5791AAFBFC600620350;
-			remoteInfo = ShareExtensions;
-		};
 		477712841AAB70850053D433 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 477712651AAB70850053D433 /* Project object */;
@@ -83,7 +73,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				470DE5851AAFBFC600620350 /* ShareExtensions.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -101,7 +90,6 @@
 		4709D9601AABCCE0001ABDDC /* MainViewInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewInteractor.m; sourceTree = "<group>"; };
 		4709D9651AABDC1E001ABDDC /* ImageEntity+Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ImageEntity+Model.h"; sourceTree = "<group>"; };
 		4709D9661AABDC1E001ABDDC /* ImageEntity+Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ImageEntity+Model.m"; sourceTree = "<group>"; };
-		470DE57A1AAFBFC600620350 /* ShareExtensions.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareExtensions.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		470DE57D1AAFBFC600620350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		470DE57E1AAFBFC600620350 /* ShareViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		470DE57F1AAFBFC600620350 /* ShareViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
@@ -154,8 +142,8 @@
 		47DAD1401AAF91D400063AF1 /* DetailViewProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewProvider.m; sourceTree = "<group>"; };
 		47DAD1421AAF91F400063AF1 /* DetailViewInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewInteractor.h; sourceTree = "<group>"; };
 		47DAD1431AAF91F400063AF1 /* DetailViewInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewInteractor.m; sourceTree = "<group>"; };
-		47DE777D1AB0C448007653C3 /* Poyo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Poyo.h; sourceTree = "<group>"; };
-		47DE777E1AB0C448007653C3 /* Poyo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Poyo.m; sourceTree = "<group>"; };
+		47DE777D1AB0C448007653C3 /* Ponso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ponso.h; sourceTree = "<group>"; };
+		47DE777E1AB0C448007653C3 /* Ponso.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Ponso.m; sourceTree = "<group>"; };
 		47FEB32E1AAF49B20008C8EB /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		47FEB32F1AAF49B20008C8EB /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		47FEB3301AAF49B20008C8EB /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -192,13 +180,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		470DE5771AAFBFC600620350 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4777126A1AAB70850053D433 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,7 +260,6 @@
 			children = (
 				4777126D1AAB70850053D433 /* GrumpyGif.app */,
 				477712831AAB70850053D433 /* GrumpyGifTests.xctest */,
-				470DE57A1AAFBFC600620350 /* ShareExtensions.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -348,8 +328,8 @@
 				4702508B1AAC65AF00C17DBB /* ImageEntity.m */,
 				4709D9651AABDC1E001ABDDC /* ImageEntity+Model.h */,
 				4709D9661AABDC1E001ABDDC /* ImageEntity+Model.m */,
-				47DE777D1AB0C448007653C3 /* Poyo.h */,
-				47DE777E1AB0C448007653C3 /* Poyo.m */,
+				47DE777D1AB0C448007653C3 /* Ponso.h */,
+				47DE777E1AB0C448007653C3 /* Ponso.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -547,23 +527,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		470DE5791AAFBFC600620350 /* ShareExtensions */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 470DE5881AAFBFC600620350 /* Build configuration list for PBXNativeTarget "ShareExtensions" */;
-			buildPhases = (
-				470DE5761AAFBFC600620350 /* Sources */,
-				470DE5771AAFBFC600620350 /* Frameworks */,
-				470DE5781AAFBFC600620350 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ShareExtensions;
-			productName = ShareExtensions;
-			productReference = 470DE57A1AAFBFC600620350 /* ShareExtensions.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		4777126C1AAB70850053D433 /* GrumpyGif */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4777128D1AAB70850053D433 /* Build configuration list for PBXNativeTarget "GrumpyGif" */;
@@ -576,7 +539,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				470DE5841AAFBFC600620350 /* PBXTargetDependency */,
 			);
 			name = GrumpyGif;
 			productName = GrumpyGif;
@@ -610,9 +572,6 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = "Armando Carmona";
 				TargetAttributes = {
-					470DE5791AAFBFC600620350 = {
-						CreatedOnToolsVersion = 6.2;
-					};
 					4777126C1AAB70850053D433 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
@@ -637,20 +596,11 @@
 			targets = (
 				4777126C1AAB70850053D433 /* GrumpyGif */,
 				477712821AAB70850053D433 /* GrumpyGifTests */,
-				470DE5791AAFBFC600620350 /* ShareExtensions */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		470DE5781AAFBFC600620350 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				470DE5821AAFBFC600620350 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		4777126B1AAB70850053D433 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -672,14 +622,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		470DE5761AAFBFC600620350 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				470DE5801AAFBFC600620350 /* ShareViewController.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		477712691AAB70850053D433 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -708,7 +650,7 @@
 				47FEB35A1AAF49B20008C8EB /* UIImage+MultiFormat.m in Sources */,
 				47FEB35B1AAF49B20008C8EB /* UIImage+WebP.m in Sources */,
 				47FEB3571AAF49B20008C8EB /* SDWebImagePrefetcher.m in Sources */,
-				47DE777F1AB0C448007653C3 /* Poyo.m in Sources */,
+				47DE777F1AB0C448007653C3 /* Ponso.m in Sources */,
 				4709D95B1AABCA7F001ABDDC /* MainViewProvider.m in Sources */,
 				47A7546D1AAE5D3B005B06C9 /* SearchViewInteractor.m in Sources */,
 				477712B61AABB12F0053D433 /* GrumpyGifStyleKit.m in Sources */,
@@ -740,11 +682,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		470DE5841AAFBFC600620350 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 470DE5791AAFBFC600620350 /* ShareExtensions */;
-			targetProxy = 470DE5831AAFBFC600620350 /* PBXContainerItemProxy */;
-		};
 		477712851AAB70850053D433 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 4777126C1AAB70850053D433 /* GrumpyGif */;
@@ -765,33 +702,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		470DE5861AAFBFC600620350 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ShareExtensions/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		470DE5871AAFBFC600620350 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = "ShareExtensions/Supporting Files/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
 		4777128B1AAB70850053D433 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -951,15 +861,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		470DE5881AAFBFC600620350 /* Build configuration list for PBXNativeTarget "ShareExtensions" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				470DE5861AAFBFC600620350 /* Debug */,
-				470DE5871AAFBFC600620350 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		477712681AAB70850053D433 /* Build configuration list for PBXProject "GrumpyGif" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

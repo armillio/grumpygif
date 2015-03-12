@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Ponso.h"
 
 @interface BaseInteractor : NSObject
 @end

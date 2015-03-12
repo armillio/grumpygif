@@ -8,16 +8,19 @@
 
 #import "SearchViewInteractor.h"
 #import "SearchViewProvider.h"
+
 @implementation SearchViewInteractor
-- (void)serachGifsWithCompletion:(void(^)(NSArray *gifs))completion parameters:(NSDictionary *)parameters error:(void(^)(NSError *error))error{
+- (void)serachGifsWithCompletion:(void(^)(NSArray *gifs))completion
+                      parameters:(NSDictionary *)parameters
+                           error:(void(^)(NSError *error))error{
     [self.serachViewProvider searchGifsWithSuccess:^(NSArray *gifs) {
         completion(gifs);
     } parameters:parameters error:^(NSError *error) {
         
     }];
 }
--(void)saveGifWithDictionary:(NSDictionary *)gifs{
-    [self.serachViewProvider saveGifWithDictionary:gifs];
+-(void)saveGifWithEntity:(Ponso *)gifs{
+    [self.serachViewProvider saveGifWithEntity:gifs];
 }
 -(SearchViewProvider *)serachViewProvider{
     if(_serachViewProvider == nil){

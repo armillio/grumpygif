@@ -1,5 +1,5 @@
 //
-//  Poyo.h
+//  Ponso.h
 //  GrumpyGif
 //
 //  Created by Armando on 11/03/15.
@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Poyo : NSObject
+@interface Ponso : NSObject
 @property (nonatomic, retain) NSString * imageId;
 @property (nonatomic, retain) NSString * imageRated;
 @property (nonatomic, retain) NSString * imageSource;

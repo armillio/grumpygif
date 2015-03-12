@@ -12,6 +12,7 @@
 #import "UIImage+animatedGIF.h"
 #import "SearchViewInteractor.h"
 #import "UIImageView+WebCache.h"
+#import "Ponso.h"
 
 NSString *const kSearchCellIdentifier = @"collectionCell";
 NSString *const kDictionaryImages = @"images";
@@ -98,13 +99,13 @@ NSString *const kDictionaryURL = @"url";
     DefaultCollectionViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
                                                                               forIndexPath:indexPath];
 
-    NSDictionary *gif = self.gifSearchArray[indexPath.row];
+    Ponso *gif = self.gifSearchArray[indexPath.row];
     cell.indexPath = indexPath;
     cell.whoCalledMe = NSStringFromClass([SearchViewController class]);
     [cell configureCell];
     cell.delegate = self;
     
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif[kGifImages][kGifOriginal][kGifURL]]
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif.imageUrl]
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                              }];
     return cell;
@@ -112,8 +113,7 @@ NSString *const kDictionaryURL = @"url";
 -(void)swipeToSave:(id)sender{
     CGPoint tappedPoint = [sender locationInView:self.searchCollectionView];
     NSIndexPath *tappedCellPath = [self.searchCollectionView indexPathForItemAtPoint:tappedPoint];
-    NSDictionary *gif = self.gifSearchArray[tappedCellPath.row];
-    [self.loadSearchViewInteractor saveGifWithDictionary:gif];
+    [self.loadSearchViewInteractor saveGifWithEntity:self.gifSearchArray[tappedCellPath.row]];
     //[self animateCell:tappedCellPath];
 }
 

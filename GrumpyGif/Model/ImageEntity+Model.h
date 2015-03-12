@@ -7,6 +7,7 @@
 //
 
 #import "ImageEntity.h"
+@class Ponso;
 
 extern NSString *const kImageEntity;
 
@@ -25,5 +26,6 @@ extern NSString *const kGifRated;
 @interface ImageEntity (Model)
 +(NSFetchRequest *) fetchAllRequest;
 +(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc;
--(void)saveGifWithDictionary:(NSDictionary *)gifs withMoc:(NSManagedObjectContext *)moc;
+-(void)saveGifWithEntity:(Ponso *)gifs
+                 withMoc:(NSManagedObjectContext *)moc;
 @end

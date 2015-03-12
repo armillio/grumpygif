@@ -7,6 +7,7 @@
 //
 
 #import "ImageEntity+Model.h"
+#import "Ponso.h"
 
 @interface ImageEntity() <NSCopying>
 
@@ -28,30 +29,30 @@ NSString *const kGifRated = @"rated";
 
 @implementation ImageEntity (Model)
 
--(ImageEntity *)saveGifInMOC:(NSManagedObjectContext *)moc withDictionary:(NSDictionary *)gifs{
+-(void)saveGifInMOC:(NSManagedObjectContext *)moc withEntity:(Ponso *)gifs{
     
-    ImageEntity *gifImage;
-    
-    if(![self checkIfImageIsAlreadyAddedToCoreDataWithId:gifs[kGifId] inMOC:moc]){
-        
-        gifImage = [NSEntityDescription insertNewObjectForEntityForName:kImageEntity inManagedObjectContext:moc];
-        
-        gifImage.imageId = gifs[kGifId];
-        gifImage.imageRated = gifs[kGifRated];
-        gifImage.imageSource = gifs[kGifSource];
-        gifImage.imageUrl = gifs[kGifImages][kGifOriginal][kGifURL];
-        
+    if(![self checkIfImageIsAlreadyAddedToCoreDataWithId:gifs.imageId inMOC:moc]){
+
+        [self transformPonsoToImageEntity:gifs withMoc:moc];
+
         NSError *error = nil;
         if (![moc save:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
             abort();
         }
     }
-    
-    return gifImage;
 }
--(void)saveGifWithDictionary:(NSDictionary *)gifs withMoc:(NSManagedObjectContext *)moc{
-    [self saveGifInMOC:moc withDictionary:gifs];
+-(void)saveGifWithEntity:(Ponso *)gifs withMoc:(NSManagedObjectContext *)moc{
+    [self saveGifInMOC:moc withEntity:gifs];
+}
+-(void)transformPonsoToImageEntity:(Ponso *)gif withMoc:(NSManagedObjectContext *)moc{
+    
+    ImageEntity *gifImage = [NSEntityDescription insertNewObjectForEntityForName:kImageEntity inManagedObjectContext:moc];
+    
+    gifImage.imageId = gif.imageId;
+    gifImage.imageRated = gif.imageRated;
+    gifImage.imageSource = gif.imageSource;
+    gifImage.imageUrl = gif.imageUrl;
 }
 #pragma mark - Fetchs
 
