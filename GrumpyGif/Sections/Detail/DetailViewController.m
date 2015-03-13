@@ -13,7 +13,6 @@
 #import "ImageEntity+Model.h"
 #import "UIImageView+WebCache.h"
 #import "GrumpyGifStyleKit.h"
-
 #import <Social/Social.h>
 
 @interface DetailViewController ()<UIActionSheetDelegate>
@@ -21,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *shareImage;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *captionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *importedDateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteImage;
 @property (strong, nonatomic) NSString *originalImageUrl;
@@ -37,20 +35,19 @@ CGFloat const kButtonSize = 40.0f;
 }
 -(void)loadDetailView{
     DetailViewInteractor *detailViewInteractor = [[DetailViewInteractor alloc] init];
-    ImageEntity *imageDetail = [detailViewInteractor getDataForDetailViewWithImageId:self.imageId];
+    ImageEntity *gifImage = [detailViewInteractor getDataForDetailViewWithImageId:self.imageId];
     
-    [self.detailImageView sd_setImageWithURL:[NSURL URLWithString:imageDetail.imageUrl]
+    [self.detailImageView sd_setImageWithURL:[NSURL URLWithString:gifImage.imageUrl]
                                    completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                    }];
-    self.ratingLabel.text = imageDetail.imageRating;
-    self.captionLabel.text = imageDetail.imageCaption;
-    self.sourceLabel.text = imageDetail.imageSource;
-    if(imageDetail.imageOriginalUrl) {
-        self.originalImageUrl = imageDetail.imageOriginalUrl;
+    self.ratingLabel.text = gifImage.imageRating;
+    self.captionLabel.text = gifImage.imageCaption;
+    if(gifImage.imageOriginalUrl) {
+        self.originalImageUrl = gifImage.imageOriginalUrl;
     }else{
-        self.originalImageUrl = imageDetail.imageUrl;
+        self.originalImageUrl = gifImage.imageUrl;
     }
-    self.importedDateLabel.text = [NSString stringWithFormat:@"%@", imageDetail.imageImportDate];
+    self.importedDateLabel.text = [NSString stringWithFormat:@"%@", gifImage.imageImportDate];
 }
 - (void)setupButtons {
     [self.shareImage setImage:[GrumpyGifStyleKit imageOfShareWithFrame:CGRectMake(0, 0, kButtonSize, kButtonSize)]

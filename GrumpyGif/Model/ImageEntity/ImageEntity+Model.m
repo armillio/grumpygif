@@ -34,11 +34,11 @@ NSString *const kGifOriginalUrl = @"rating";
 
 @implementation ImageEntity (Model)
 
--(void)saveGiWithMOC:(NSManagedObjectContext *)moc withEntity:(Ponso *)gifs{
+-(void)saveGiWithMOC:(NSManagedObjectContext *)moc withEntity:(Ponso *)ponsoImage{
     
-    if(![self checkIfImageIsAlreadyAddedToCoreDataWithId:gifs.imageId withMoc:moc]){
+    if(![self checkIfImageIsAlreadyAddedToCoreDataWithId:ponsoImage.imageId withMoc:moc]){
 
-        [self transformPonsoToImageEntity:gifs withMoc:moc];
+        [self transformPonsoToImageEntity:ponsoImage withMoc:moc];
 
         NSError *error = nil;
         if (![moc save:&error]) {
@@ -47,21 +47,21 @@ NSString *const kGifOriginalUrl = @"rating";
         }
     }
 }
--(void)saveGifWithEntity:(Ponso *)gifs withMoc:(NSManagedObjectContext *)moc{
-    [self saveGiWithMOC:moc withEntity:gifs];
+-(void)saveGifWithEntity:(Ponso *)ponsoImage withMoc:(NSManagedObjectContext *)moc{
+    [self saveGiWithMOC:moc withEntity:ponsoImage];
 }
--(void)transformPonsoToImageEntity:(Ponso *)gif
+-(void)transformPonsoToImageEntity:(Ponso *)ponsoImage
                            withMoc:(NSManagedObjectContext *)moc{
     
     ImageEntity *gifImage = [NSEntityDescription insertNewObjectForEntityForName:kImageEntity inManagedObjectContext:moc];
     
-    gifImage.imageId = gif.imageId;
-    gifImage.imageRating = gif.imageRating;
-    gifImage.imageSource = gif.imageSource;
-    gifImage.imageUrl = gif.imageUrl;
-    gifImage.imageCaption = gif.imageCaption;
-    gifImage.imageOriginalUrl = gif.imageOriginalUrl;
-    gifImage.imageImportDate = gif.imageImportDate;
+    gifImage.imageId = ponsoImage.imageId;
+    gifImage.imageRating = ponsoImage.imageRating;
+    gifImage.imageSource = ponsoImage.imageSource;
+    gifImage.imageUrl = ponsoImage.imageUrl;
+    gifImage.imageCaption = ponsoImage.imageCaption;
+    gifImage.imageOriginalUrl = ponsoImage.imageOriginalUrl;
+    gifImage.imageImportDate = ponsoImage.imageImportDate;
 }
 #pragma mark - Fetchs
 +(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc

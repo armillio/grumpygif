@@ -99,13 +99,13 @@ NSString *const kDictionaryURL = @"url";
     DefaultCollectionViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
                                                                               forIndexPath:indexPath];
 
-    Ponso *gif = self.gifSearchArray[indexPath.row];
+    Ponso *ponsoImage = self.gifSearchArray[indexPath.row];
     cell.indexPath = indexPath;
     cell.whoCalledMe = NSStringFromClass([SearchViewController class]);
     [cell configureCell];
     cell.delegate = self;
     
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif.imageUrl]
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:ponsoImage.imageUrl]
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                              }];
     return cell;

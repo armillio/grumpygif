@@ -14,5 +14,5 @@
 - (void)searchGifsWithSuccess:(void(^)(NSArray *gifs))successBlock
                    parameters:(NSDictionary *)parameters
                         error:(void(^)(NSError *error))errorBlock;
--(void)saveGifWithEntity:(Ponso *)gifs;
+-(void)saveGifWithEntity:(Ponso *)ponsoImage;
 @end

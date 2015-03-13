@@ -19,8 +19,8 @@
         
     }];
 }
--(void)saveGifWithEntity:(Ponso *)gifs{
-    [self.serachViewProvider saveGifWithEntity:gifs];
+-(void)saveGifWithEntity:(Ponso *)ponsoImage{
+    [self.serachViewProvider saveGifWithEntity:ponsoImage];
 }
 -(SearchViewProvider *)serachViewProvider{
     if(_serachViewProvider == nil){

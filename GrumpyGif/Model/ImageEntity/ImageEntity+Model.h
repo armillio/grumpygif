@@ -29,7 +29,7 @@ extern NSString *const kGifOriginalUrl;
 @interface ImageEntity (Model)
 +(NSFetchRequest *) fetchAllRequest;
 +(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc;
--(void)saveGifWithEntity:(Ponso *)gifs
+-(void)saveGifWithEntity:(Ponso *)ponsoImage
                  withMoc:(NSManagedObjectContext *)moc;
 -(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId
                                           withMoc:(NSManagedObjectContext*)moc;

@@ -15,5 +15,5 @@
 - (void)serachGifsWithCompletion:(void(^)(NSArray *gifs))completion
                       parameters:(NSDictionary *)parameters
                            error:(void(^)(NSError *error))error;
--(void)saveGifWithEntity:(Ponso *)gifs;
+-(void)saveGifWithEntity:(Ponso *)ponsoImage;
 @end

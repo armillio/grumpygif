@@ -112,9 +112,9 @@ NSString *const kCellIdentifier = @"collectionCell";
     cell.indexPath = indexPath;
     cell.whoCalledMe = NSStringFromClass([MainViewController class]);
     [cell reloadInputViews];
-    ImageEntity *gif = self.gifArray[indexPath.row];
-    cell.imageId = gif.imageId;
-    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif.imageUrl]
+    ImageEntity *gifImage = self.gifArray[indexPath.row];
+    cell.imageId = gifImage.imageId;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gifImage.imageUrl]
                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                              }];
     return cell;

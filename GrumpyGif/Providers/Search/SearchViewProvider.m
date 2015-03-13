@@ -21,8 +21,8 @@
     [self.requestHandler GET:@"/v1/gifs/search" parameters:parameters completion:^(id data) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
             NSMutableArray *gifs = [NSMutableArray array];
-            for (Ponso *gifPonso in [FeedParser parseDataToJson:data] ) {
-                [gifs addObject:gifPonso];
+            for (Ponso *ponsoImage in [FeedParser parseDataToJson:data] ) {
+                [gifs addObject:ponsoImage];
             }
             successBlock(gifs);
         });
