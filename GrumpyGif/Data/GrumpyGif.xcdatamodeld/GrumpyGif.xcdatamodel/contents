@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C109" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C1510" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="ImageEntity" representedClassName="ImageEntity" syncable="YES">
+        <attribute name="imageCaption" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="imageImportDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="imageOriginalUrl" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageRated" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageSource" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageUrl" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ImageEntity" positionX="0" positionY="0" width="128" height="105"/>
+        <element name="ImageEntity" positionX="0" positionY="0" width="128" height="150"/>
     </elements>
 </model>
