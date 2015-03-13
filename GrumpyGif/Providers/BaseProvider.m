@@ -25,8 +25,4 @@
     }
     return _requestHandler;
 }
-
-//[self.coreDataStack saveContext];
-
-
 @end
