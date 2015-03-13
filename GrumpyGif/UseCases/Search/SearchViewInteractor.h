@@ -11,8 +11,8 @@
 @class Ponso;
 
 @interface SearchViewInteractor : BaseInteractor
-@property (strong,nonatomic) SearchViewProvider *serachViewProvider;
-- (void)serachGifsWithCompletion:(void(^)(NSArray *gifs))completion
+@property (strong,nonatomic) SearchViewProvider *searchViewProvider;
+- (void)searchGifsWithCompletion:(void(^)(NSArray *gifs))completion
                       parameters:(NSDictionary *)parameters
                            error:(void(^)(NSError *error))error;
 -(void)saveGifWithEntity:(Ponso *)ponsoImage;

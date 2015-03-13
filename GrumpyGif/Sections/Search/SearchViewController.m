@@ -143,7 +143,7 @@ NSString *const kDictionaryURL = @"url";
 
     NSDictionary *parameters=@{@"q":searchBar.text};
     __weak typeof(self) weakSelf = self;
-    [self.loadSearchViewInteractor serachGifsWithCompletion:^(NSArray *gifs) {
+    [self.loadSearchViewInteractor searchGifsWithCompletion:^(NSArray *gifs) {
         __strong typeof(weakSelf) self = weakSelf;
         self.gifSearchArray = [gifs copy];
         [self.searchCollectionView reloadData];

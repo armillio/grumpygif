@@ -10,22 +10,22 @@
 #import "SearchViewProvider.h"
 
 @implementation SearchViewInteractor
-- (void)serachGifsWithCompletion:(void(^)(NSArray *gifs))completion
+- (void)searchGifsWithCompletion:(void(^)(NSArray *gifs))completion
                       parameters:(NSDictionary *)parameters
                            error:(void(^)(NSError *error))error{
-    [self.serachViewProvider searchGifsWithSuccess:^(NSArray *gifs) {
+    [self.searchViewProvider searchGifsWithSuccess:^(NSArray *gifs) {
         completion(gifs);
     } parameters:parameters error:^(NSError *error) {
         
     }];
 }
 -(void)saveGifWithEntity:(Ponso *)ponsoImage{
-    [self.serachViewProvider saveGifWithEntity:ponsoImage];
+    [self.searchViewProvider saveGifWithEntity:ponsoImage];
 }
--(SearchViewProvider *)serachViewProvider{
-    if(_serachViewProvider == nil){
-        _serachViewProvider = [[SearchViewProvider alloc] init];
+-(SearchViewProvider *)searchViewProvider{
+    if(_searchViewProvider == nil){
+        _searchViewProvider = [[SearchViewProvider alloc] init];
     }
-    return _serachViewProvider;
+    return _searchViewProvider;
 }
 @end
