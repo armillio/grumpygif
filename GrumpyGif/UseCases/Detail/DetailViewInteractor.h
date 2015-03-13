@@ -13,4 +13,5 @@
 @interface DetailViewInteractor : BaseInteractor
 @property (strong,nonatomic) DetailViewProvider *detailViewProvider;
 -(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId;
+-(BOOL)deleteImageWithId:(NSString *)imageId;
 @end

@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *importedDateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteImage;
 @property (strong, nonatomic) NSString *originalImageUrl;
+@property (strong, nonatomic) NSString *detailImageId;
 @end
 
 CGFloat const kButtonSize = 40.0f;
@@ -42,6 +43,7 @@ CGFloat const kButtonSize = 40.0f;
                                    }];
     self.ratingLabel.text = gifImage.imageRating;
     self.captionLabel.text = gifImage.imageCaption;
+    self.detailImageId = gifImage.imageId;
     if(gifImage.imageOriginalUrl) {
         self.originalImageUrl = gifImage.imageOriginalUrl;
     }else{
@@ -86,6 +88,10 @@ CGFloat const kButtonSize = 40.0f;
     }
 }
 - (IBAction)deleteImageInCoreData:(id)sender {
+    DetailViewInteractor *detailViewInteractor = [[DetailViewInteractor alloc] init];
+    if([detailViewInteractor deleteImageWithId:self.imageId]){
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 

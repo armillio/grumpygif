@@ -63,8 +63,24 @@ NSString *const kGifOriginalUrl = @"rating";
     gifImage.imageOriginalUrl = ponsoImage.imageOriginalUrl;
     gifImage.imageImportDate = ponsoImage.imageImportDate;
 }
--(void)deleteImageWithId:(NSString *)imageId
+-(BOOL)deleteImageWithId:(NSString *)imageId
                  withMoc:(NSManagedObjectContext*)moc{
+    
+    BOOL result = NO;
+    
+    ImageEntity *gifImage = [self getImageDataWithId:imageId withMoc:moc];
+    if(gifImage){
+        [moc deleteObject:gifImage];
+        
+        NSError *error = nil;
+        if (![moc save:&error]) {
+            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+            abort();
+        }
+        result = YES;
+    }
+    
+    return result;
 }
 #pragma mark - Fetchs
 +(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc

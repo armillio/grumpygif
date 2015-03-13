@@ -14,6 +14,9 @@
 -(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId{
     return[self.detailViewProvider getDataForDetailViewWithImageId:imageId];
 }
+-(BOOL)deleteImageWithId:(NSString *)imageId{
+    return [self.detailViewProvider deleteImageWithId:imageId];
+}
 -(DetailViewProvider *)detailViewProvider{
     if(_detailViewProvider == nil){
         _detailViewProvider = [[DetailViewProvider alloc] init];

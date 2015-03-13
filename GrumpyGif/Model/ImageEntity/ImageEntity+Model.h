@@ -33,6 +33,6 @@ extern NSString *const kGifOriginalUrl;
                  withMoc:(NSManagedObjectContext *)moc;
 -(ImageEntity *)getImageDataWithId:(NSString *)imageId
                            withMoc:(NSManagedObjectContext*)moc;
--(void)deleteImageWithId:(NSString *)imageId
+-(BOOL)deleteImageWithId:(NSString *)imageId
                  withMoc:(NSManagedObjectContext*)moc;
 @end

@@ -15,4 +15,8 @@
     return [[ImageEntity alloc] getImageDataWithId:imageId
                                            withMoc:self.managedObjectContext];
 }
+-(BOOL)deleteImageWithId:(NSString *)imageId{
+    return [[ImageEntity alloc] deleteImageWithId:imageId
+                                          withMoc:self.managedObjectContext];
+}
 @end

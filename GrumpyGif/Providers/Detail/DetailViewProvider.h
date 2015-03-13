@@ -10,4 +10,5 @@
 @class ImageEntity;
 @interface DetailViewProvider : BaseProvider
 -(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId;
+-(BOOL)deleteImageWithId:(NSString *)imageId;
 @end
