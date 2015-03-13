@@ -14,7 +14,9 @@
 #import "UIImageView+WebCache.h"
 #import "GrumpyGifStyleKit.h"
 
-@interface DetailViewController ()
+#import <Social/Social.h>
+
+@interface DetailViewController ()<UIActionSheetDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *detailImageView;
 @property (weak, nonatomic) IBOutlet UIButton *shareImage;
 @property (weak, nonatomic) IBOutlet UILabel *ratingLabel;
@@ -22,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sourceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *importedDateLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deleteImage;
+@property (strong, nonatomic) NSString *originalImageUrl;
 @end
 
 CGFloat const kButtonSize = 40.0f;
@@ -42,14 +45,48 @@ CGFloat const kButtonSize = 40.0f;
     self.ratingLabel.text = imageDetail.imageRating;
     self.captionLabel.text = imageDetail.imageCaption;
     self.sourceLabel.text = imageDetail.imageSource;
+    if(imageDetail.imageOriginalUrl) {
+        self.originalImageUrl = imageDetail.imageOriginalUrl;
+    }else{
+        self.originalImageUrl = imageDetail.imageUrl;
+    }
     self.importedDateLabel.text = [NSString stringWithFormat:@"%@", imageDetail.imageImportDate];
 }
 - (void)setupButtons {
     [self.shareImage setImage:[GrumpyGifStyleKit imageOfShareWithFrame:CGRectMake(0, 0, kButtonSize, kButtonSize)]
                      forState:UIControlStateNormal];
     [self.deleteImage setImage:[GrumpyGifStyleKit imageOfEliminateWithFrame:CGRectMake(0, 0, kButtonSize, kButtonSize)]
-                      forState:UIControlStateNormal];}
+                      forState:UIControlStateNormal];
+}
 - (IBAction)shareGif:(id)sender {
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:@"Share this Image"
+                                                             delegate:self
+                                                    cancelButtonTitle:@"OK"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:@"Post to Twitter", @"Post to Facebook", nil];
+    [actionSheet showInView:self.view];
+}
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.originalImageUrl]];
+    UIImage *image = [UIImage imageWithData:imageData];
+    switch (buttonIndex) {
+        case 0:
+            if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
+                SLComposeViewController *controllerSLCTwitter = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+                [controllerSLCTwitter addImage:image];
+                [self presentViewController:controllerSLCTwitter animated:YES completion:Nil];
+            }
+            break;
+        case 1:
+            if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+                SLComposeViewController *controllerSLCFacebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+                [controllerSLCFacebook addImage:image];
+                [self presentViewController:controllerSLCFacebook animated:YES completion:Nil];
+            }
+            break;
+        default:
+            break;
+    }
 }
 - (IBAction)deleteImageInCoreData:(id)sender {
 }
