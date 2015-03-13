@@ -23,14 +23,23 @@
         ponsoImage.imageId = parseDictionary[kGifId];
         ponsoImage.imageRating = parseDictionary[kGifRating];
         ponsoImage.imageSource = parseDictionary[kGifSource];
-        ponsoImage.imageUrl = parseDictionary[kGifImages][kGifOriginal][kGifURL];
+        ponsoImage.imageUrl = parseDictionary[kGifImages][kGifFixedHeight][kGifURL];
         ponsoImage.imageCaption = parseDictionary[kGifCaption];
         ponsoImage.imageOriginalUrl = parseDictionary[kGifImages][kGifOriginal][kGifURL];
-        ponsoImage.imageImportDate = parseDictionary[kGifImportDate];
+        ponsoImage.imageImportDate = [self convertStringToDate:parseDictionary[kGifImportDate]];
         
         [parseArray addObject:ponsoImage];
     }
         
     return [parseArray copy];
 }
++ (NSDate *)convertStringToDate:(NSString *)dateString {
+    // Convert string to date object
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"yyyy-mm-dd hh:mm:ss"];
+    NSDate *date = [dateFormat dateFromString:dateString];
+    
+    return date;
+}
+
 @end
