@@ -21,9 +21,12 @@
         Ponso *ponsoImage = [[Ponso alloc] init];
 
         ponsoImage.imageId = parseDictionary[kGifId];
-        ponsoImage.imageRated = parseDictionary[kGifRated];
+        ponsoImage.imageRating = parseDictionary[kGifRating];
         ponsoImage.imageSource = parseDictionary[kGifSource];
         ponsoImage.imageUrl = parseDictionary[kGifImages][kGifOriginal][kGifURL];
+        ponsoImage.imageCaption = parseDictionary[kGifCaption];
+        ponsoImage.imageOriginalUrl = parseDictionary[kGifImages][kGifOriginal][kGifURL];
+        ponsoImage.imageImportDate = parseDictionary[kGifImportDate];
         
         [parseArray addObject:ponsoImage];
     }
