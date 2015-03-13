@@ -31,6 +31,8 @@ extern NSString *const kGifOriginalUrl;
 +(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc;
 -(void)saveGifWithEntity:(Ponso *)ponsoImage
                  withMoc:(NSManagedObjectContext *)moc;
--(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId
-                                          withMoc:(NSManagedObjectContext*)moc;
+-(ImageEntity *)getImageDataWithId:(NSString *)imageId
+                           withMoc:(NSManagedObjectContext*)moc;
+-(void)deleteImageWithId:(NSString *)imageId
+                 withMoc:(NSManagedObjectContext*)moc;
 @end

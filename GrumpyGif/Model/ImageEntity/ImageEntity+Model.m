@@ -63,6 +63,9 @@ NSString *const kGifOriginalUrl = @"rating";
     gifImage.imageOriginalUrl = ponsoImage.imageOriginalUrl;
     gifImage.imageImportDate = ponsoImage.imageImportDate;
 }
+-(void)deleteImageWithId:(NSString *)imageId
+                 withMoc:(NSManagedObjectContext*)moc{
+}
 #pragma mark - Fetchs
 +(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc
 {
@@ -96,7 +99,7 @@ NSString *const kGifOriginalUrl = @"rating";
     
     return fetchResult.count?[fetchResult firstObject]:nil;
 }
--(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId
+-(ImageEntity *)getImageDataWithId:(NSString *)imageId
                                           withMoc:(NSManagedObjectContext*)moc{
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:kImageEntity];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = %@", kImageId, imageId];

@@ -12,7 +12,7 @@
 @implementation DetailViewProvider
 -(ImageEntity *)getDataForDetailViewWithImageId:(NSString *)imageId{
     
-    return [[ImageEntity alloc] getDataForDetailViewWithImageId:imageId
-                                                        withMoc:self.managedObjectContext];
+    return [[ImageEntity alloc] getImageDataWithId:imageId
+                                           withMoc:self.managedObjectContext];
 }
 @end
