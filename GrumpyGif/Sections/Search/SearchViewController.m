@@ -6,12 +6,13 @@
 //  Copyright (c) 2015 Armando Carmona. All rights reserved.
 //
 #import "UIColor+RandomColors.h"
-#import "MainViewCell.h"
+#import "DefaultCollectionViewCell.h"
 #import "SearchViewController.h"
 #import "ImageEntity+Model.h"
 #import "UIImage+animatedGIF.h"
 #import "SearchViewInteractor.h"
 #import "UIImageView+WebCache.h"
+#import "Ponso.h"
 
 NSString *const kSearchCellIdentifier = @"collectionCell";
 NSString *const kDictionaryImages = @"images";
@@ -19,7 +20,7 @@ NSString *const kDictionaryOriginal = @"original";
 NSString *const kDictionaryFixedWidth = @"fixed_width";
 NSString *const kDictionaryURL = @"url";
 
-@interface SearchViewController() <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate>
+@interface SearchViewController() <UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, GestureProtocol>
 @property (strong, nonatomic) UICollectionView *searchCollectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *regularLayout;
 @property (strong, nonatomic) UISearchBar *searchBar;
@@ -62,6 +63,7 @@ NSString *const kDictionaryURL = @"url";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor randomColor];
     self.title = @"GrumpyGif";
+
     [self loadLayout];
     [self loadCollectionView];
     [self loadCollectionCell];
@@ -81,7 +83,7 @@ NSString *const kDictionaryURL = @"url";
     [self.view addSubview:self.searchCollectionView];
 }
 -(void) loadCollectionCell{
-    [self.searchCollectionView registerClass:[MainViewCell class] forCellWithReuseIdentifier:kSearchCellIdentifier];
+    [self.searchCollectionView registerClass:[DefaultCollectionViewCell class] forCellWithReuseIdentifier:kSearchCellIdentifier];
 }
 -(void) loadLayout{
     self.regularLayout = [[UICollectionViewFlowLayout alloc] init];
@@ -92,56 +94,29 @@ NSString *const kDictionaryURL = @"url";
     self.regularLayout.itemSize = CGSizeMake(self.view.frame.size.width,
                                              (self.view.frame.size.height - self.statusBarHeight - self.navigationBarHeight) / 3.31);
 }
-- (void)addGestureRecognizerToCell:(MainViewCell *)cell
-{
-    UISwipeGestureRecognizer* swipeGestureRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipetoSave:)];
-    swipeGestureRecognizer.direction = UISwipeGestureRecognizerDirectionLeft;    
-    [cell addGestureRecognizer: swipeGestureRecognizer];
-}
-
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    MainViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
+    DefaultCollectionViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
                                                                               forIndexPath:indexPath];
-    if(cell == nil){
-        cell = [[MainViewCell alloc] init];
-    }
-    NSDictionary *gif = self.gifSearchArray[indexPath.row];
+
+    Ponso *ponsoImage = self.gifSearchArray[indexPath.row];
+    cell.indexPath = indexPath;
+    cell.whoCalledMe = NSStringFromClass([SearchViewController class]);
+    [cell configureCell];
+    cell.delegate = self;
     
-    __weak typeof(self) weakSelf = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif[kDictionaryImages][kDictionaryFixedWidth][kDictionaryURL]]
-                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-                                     __strong typeof(weakSelf) self = weakSelf;
-                                     if(indexPath.row == 0){
-                                         [self animateCell:indexPath];
-                                         cell.backgroundColor = [UIColor randomColor];
-                                     }
-                                 }];
-    });
-    
-    [self addGestureRecognizerToCell:cell];
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:ponsoImage.imageUrl]
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                             }];
     return cell;
 }
--(void)swipetoSave:(id)sender{
+-(void)swipeToSave:(id)sender{
     CGPoint tappedPoint = [sender locationInView:self.searchCollectionView];
     NSIndexPath *tappedCellPath = [self.searchCollectionView indexPathForItemAtPoint:tappedPoint];
-    [self.loadSearchViewInteractor saveGifWithDictionary:[self.gifSearchArray[tappedCellPath.row] copy]];
-    
-    [self animateCell:tappedCellPath];
+    [self.loadSearchViewInteractor saveGifWithEntity:self.gifSearchArray[tappedCellPath.row]];
+    //[self animateCell:tappedCellPath];
 }
-- (void)animateCell:(NSIndexPath *)tappedCellPath {
-    CGFloat previousPosition = [self.searchCollectionView cellForItemAtIndexPath:tappedCellPath].layer.position.x;
-    CABasicAnimation *animation= [CABasicAnimation animationWithKeyPath:@"position.x"];
-    animation.toValue = @(previousPosition - 100);
-    
-    CAAnimationGroup *group = [CAAnimationGroup animation];
-    group.animations = @[animation];
-    group.duration = 0.6;
-    group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    group.delegate = self;
-    [[self.searchCollectionView cellForItemAtIndexPath:tappedCellPath].layer addAnimation:group forKey:@"groupAnimation"];
-}
+
 -(SearchViewInteractor *)loadSearchViewInteractor{
     if(_loadSearchViewInteractor == nil){
         _loadSearchViewInteractor = [[SearchViewInteractor alloc] init];

@@ -8,9 +8,12 @@
 
 #import "BaseInteractor.h"
 @class SearchViewProvider;
+@class Ponso;
 
 @interface SearchViewInteractor : BaseInteractor
 @property (strong,nonatomic) SearchViewProvider *serachViewProvider;
-- (void)serachGifsWithCompletion:(void(^)(NSArray *gifs))completion parameters:(NSDictionary *)parameters error:(void(^)(NSError *error))error;
--(void)saveGifWithDictionary:(NSDictionary *)gifs;
+- (void)serachGifsWithCompletion:(void(^)(NSArray *gifs))completion
+                      parameters:(NSDictionary *)parameters
+                           error:(void(^)(NSError *error))error;
+-(void)saveGifWithEntity:(Ponso *)ponsoImage;
 @end

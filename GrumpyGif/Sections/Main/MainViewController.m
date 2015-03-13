@@ -8,12 +8,13 @@
 #import "UIImage+animatedGIF.h"
 #import "MainViewController.h"
 #import "UIColor+RandomColors.h"
-#import "MainViewCell.h"
+#import "DefaultCollectionViewCell.h"
 #import "GrumpyGifStyleKit.h"
 #import "MainViewInteractor.h"
 #import "ImageEntity+Model.h"
 #import "SearchViewController.h"
 #import "UIImageView+WebCache.h"
+#import "DetailViewController.h"
 
 NSString *const kCellIdentifier = @"collectionCell";
 
@@ -38,8 +39,9 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
     self.title = @"GrumpyGif";
-    [self loadImageData];
+    
     [self loadLayout];
     [self loadCollectionView];
     [self loadCollectionCell];
@@ -86,7 +88,7 @@ NSString *const kCellIdentifier = @"collectionCell";
     [self.view addSubview:self.collectionView];
 }
 -(void) loadCollectionCell{
-    [self.collectionView registerClass:[MainViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
+    [self.collectionView registerClass:[DefaultCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
 }
 -(void) loadLayout
 {
@@ -105,19 +107,23 @@ NSString *const kCellIdentifier = @"collectionCell";
 }
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    MainViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
-    
-    if(cell == nil){
-        cell = [[MainViewCell alloc] init];
-    }
-
-    ImageEntity *gif = self.gifArray[indexPath.row];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gif.imageUrl]
-                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        }];
-    });
+    DefaultCollectionViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifier forIndexPath:indexPath];
+        
+    cell.indexPath = indexPath;
+    cell.whoCalledMe = NSStringFromClass([MainViewController class]);
+    [cell reloadInputViews];
+    ImageEntity *gifImage = self.gifArray[indexPath.row];
+    cell.imageId = gifImage.imageId;
+    [cell.imageView sd_setImageWithURL:[NSURL URLWithString:gifImage.imageUrl]
+                             completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+                             }];
     return cell;
+}
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    DetailViewController *dvc = [[DetailViewController alloc] initWithNibName:NSStringFromClass([DetailViewController class]) bundle:nil];
+    DefaultCollectionViewCell *selectedCell = (DefaultCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    dvc.imageId = selectedCell.imageId;
+    
+    [self.navigationController pushViewController:dvc animated:YES];
 }
 @end

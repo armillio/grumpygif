@@ -16,4 +16,5 @@
 - (instancetype)initWithModelName:(NSString *)modelName;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
++ (instancetype)sharedInstance;
 @end

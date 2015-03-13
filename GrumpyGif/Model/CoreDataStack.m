@@ -8,6 +8,8 @@
 
 #import "CoreDataStack.h"
 
+NSString *const kModelName = @"GrumpyGif";
+
 @interface CoreDataStack ()
 @property (copy, nonatomic) NSString *modelName;
 @end
@@ -19,6 +21,19 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
++ (instancetype)sharedInstance
+{
+    
+    static dispatch_once_t once;
+    static CoreDataStack *sharedInstance;
+    
+    dispatch_once(&once, ^{
+        sharedInstance = [[CoreDataStack alloc] initWithModelName:kModelName];
+    });
+    
+    return sharedInstance;
+}
 
 - (instancetype)initWithModelName:(NSString *)modelName {
     self = [super init];
@@ -55,7 +70,18 @@
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:[NSString stringWithFormat:@"%@.sqlite",self.modelName]];
     NSError *error = nil;
     NSString *failureReason = @"There was an error creating or loading the application's saved data.";
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    
+    NSDictionary *lightweight = @{
+                                  NSMigratePersistentStoresAutomaticallyOption: @YES,
+                                  NSInferMappingModelAutomaticallyOption: @YES
+                                  };
+    
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
+                                                   configuration:nil
+                                                             URL:storeURL
+                                                         options:lightweight
+                                                           error:&error])
+    {
         // Report any error we got.
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";

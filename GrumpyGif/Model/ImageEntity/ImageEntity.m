@@ -2,7 +2,7 @@
 //  ImageEntity.m
 //  GrumpyGif
 //
-//  Created by Armando on 08/03/15.
+//  Created by Armando on 13/03/15.
 //  Copyright (c) 2015 Armando Carmona. All rights reserved.
 //
 
@@ -11,8 +11,11 @@
 
 @implementation ImageEntity
 
+@dynamic imageCaption;
 @dynamic imageId;
-@dynamic imageRated;
+@dynamic imageImportDate;
+@dynamic imageOriginalUrl;
+@dynamic imageRating;
 @dynamic imageSource;
 @dynamic imageUrl;
 
