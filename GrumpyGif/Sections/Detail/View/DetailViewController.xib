@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailViewController">
             <connections>
-                <outlet property="detailImageView" destination="Noy-au-5bL" id="5YA-Hf-rrZ"/>
+                <outlet property="detailImageView" destination="Noy-au-5bL" id="g49-sl-S3J"/>
                 <outlet property="shareImage" destination="Jpg-af-xlX" id="THi-yE-v5F"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -23,20 +23,24 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jpg-af-xlX">
-                    <rect key="frame" x="297" y="400" width="30" height="30"/>
-                    <color key="backgroundColor" red="0.99063974060000004" green="0.004551742026" blue="0.31092586300000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="260" y="374" width="80" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="15H-wt-mEQ"/>
+                        <constraint firstAttribute="width" constant="80" id="DGc-Vf-6HC"/>
+                    </constraints>
                     <connections>
-                        <action selector="shareButton:" destination="-1" eventType="touchUpInside" id="RJY-jX-vOm"/>
+                        <action selector="shareButton:" destination="-1" eventType="touchUpInside" id="lfI-92-HD3"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="Jpg-af-xlX" secondAttribute="centerX" constant="-12" id="B7x-cm-M6E"/>
-                <constraint firstItem="Noy-au-5bL" firstAttribute="top" secondItem="Jpg-af-xlX" secondAttribute="top" constant="-400" id="I5X-jn-NTu"/>
+                <constraint firstItem="Jpg-af-xlX" firstAttribute="top" secondItem="Noy-au-5bL" secondAttribute="bottom" constant="74" id="QaU-xM-0Cj"/>
                 <constraint firstItem="Noy-au-5bL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="dY2-Pz-dTB"/>
                 <constraint firstAttribute="trailing" secondItem="Noy-au-5bL" secondAttribute="trailing" id="fU2-3q-wk0"/>
                 <constraint firstItem="Noy-au-5bL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="w15-5F-wvS"/>
+                <constraint firstAttribute="centerX" secondItem="Jpg-af-xlX" secondAttribute="centerX" id="wxR-iL-21t"/>
             </constraints>
         </view>
     </objects>
