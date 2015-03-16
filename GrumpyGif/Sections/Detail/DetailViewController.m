@@ -66,20 +66,19 @@ CGFloat const kButtonSize = 40.0f;
     [actionSheet showInView:self.view];
 }
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex{
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.originalImageUrl]];
-    UIImage *image = [UIImage imageWithData:imageData];
+    NSURL *imageURL  = [NSURL URLWithString:self.originalImageUrl];
     switch (buttonIndex) {
         case 0:
             if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
                 SLComposeViewController *controllerSLCTwitter = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-                [controllerSLCTwitter addImage:image];
+                [controllerSLCTwitter addURL:imageURL];
                 [self presentViewController:controllerSLCTwitter animated:YES completion:Nil];
             }
             break;
         case 1:
             if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
                 SLComposeViewController *controllerSLCFacebook = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-                [controllerSLCFacebook addImage:image];
+                [controllerSLCFacebook addURL:imageURL];
                 [self presentViewController:controllerSLCFacebook animated:YES completion:Nil];
             }
             break;
