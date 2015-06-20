@@ -12,8 +12,7 @@ NSString *const kSearchCollectionView = @"SearchViewController";
 
 @implementation DefaultCollectionViewCell
 
-- (void)setupImageView
-{
+- (void)setupImageView{
     _imageView = [[UIImageView alloc] initWithFrame:self.contentView.bounds];
     
     _imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
@@ -27,12 +26,10 @@ NSString *const kSearchCollectionView = @"SearchViewController";
         [self addGestureRecognizerToCell:self];
     }
 }
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     
-    if (self)
-    {
+    if (self){
         [self setupImageView];
     }
     return self;

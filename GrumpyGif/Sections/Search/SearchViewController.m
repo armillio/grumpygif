@@ -59,6 +59,7 @@ NSString *const kDictionaryURL = @"url";
     [self.activityIndicator startAnimating];
     self.activityIndicator.hidden = YES;
 }
+
 -(void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor randomColor];
@@ -70,10 +71,12 @@ NSString *const kDictionaryURL = @"url";
     [self loadSearchBar];
     [self createActivityIndicator];
 }
+
 -(void) setStatusAndNavigationHeightVariables{
     self.statusBarHeight = [UIApplication sharedApplication].statusBarFrame.size.height;
     self.navigationBarHeight = self.navigationController.navigationBar.frame.size.height;
 }
+
 -(void) loadCollectionView{
     self.searchCollectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds
                                              collectionViewLayout:self.regularLayout];
@@ -82,9 +85,11 @@ NSString *const kDictionaryURL = @"url";
     self.searchCollectionView.backgroundColor = [UIColor randomColor];
     [self.view addSubview:self.searchCollectionView];
 }
+
 -(void) loadCollectionCell{
     [self.searchCollectionView registerClass:[DefaultCollectionViewCell class] forCellWithReuseIdentifier:kSearchCellIdentifier];
 }
+
 -(void) loadLayout{
     self.regularLayout = [[UICollectionViewFlowLayout alloc] init];
     self.regularLayout.minimumInteritemSpacing = 0;
@@ -94,6 +99,7 @@ NSString *const kDictionaryURL = @"url";
     self.regularLayout.itemSize = CGSizeMake(self.view.frame.size.width,
                                              (self.view.frame.size.height - self.statusBarHeight - self.navigationBarHeight) / 3.31);
 }
+
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                  cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     DefaultCollectionViewCell *cell = [self.searchCollectionView dequeueReusableCellWithReuseIdentifier:kSearchCellIdentifier
@@ -110,6 +116,7 @@ NSString *const kDictionaryURL = @"url";
                              }];
     return cell;
 }
+
 -(void)swipeToSave:(id)sender{
     CGPoint tappedPoint = [sender locationInView:self.searchCollectionView];
     NSIndexPath *tappedCellPath = [self.searchCollectionView indexPathForItemAtPoint:tappedPoint];
@@ -123,20 +130,23 @@ NSString *const kDictionaryURL = @"url";
     }
     return _loadSearchViewInteractor;
 }
+
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar{
     searchBar.showsCancelButton = YES;
     searchBar.autocorrectionType = UITextAutocorrectionTypeDefault;
 }
+
 - (void)searchBarTextDidEndEditing:(UISearchBar *)searchBar{
     searchBar.showsCancelButton = NO;
     [self getResultsFromAPI:searchBar];
 }
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
     [searchBar resignFirstResponder];
     searchBar.text = @"";
 }
-- (void)getResultsFromAPI:(UISearchBar *)searchBar
-{
+
+- (void)getResultsFromAPI:(UISearchBar *)searchBar{
     [self startActivityIndicator];
     self.gifSearchArray = nil;
     [self.searchCollectionView reloadData];
@@ -153,13 +163,15 @@ NSString *const kDictionaryURL = @"url";
     }];
     [searchBar resignFirstResponder];
 }
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
-{
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     [self getResultsFromAPI:searchBar];
 }
+
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.gifSearchArray.count;
 }
+
 -(NSArray *)gifSearchArray{
     if(_gifSearchArray == nil){
         _gifSearchArray = [[NSArray alloc] init];

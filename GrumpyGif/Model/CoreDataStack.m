@@ -76,8 +76,7 @@ NSString *const kModelName = @"GrumpyGif";
                                                    configuration:nil
                                                              URL:storeURL
                                                          options:lightweight
-                                                           error:&error])
-    {
+                                                           error:&error]){
         // Report any error we got.
         NSMutableDictionary *dict = [NSMutableDictionary dictionary];
         dict[NSLocalizedDescriptionKey] = @"Failed to initialize the application's saved data";

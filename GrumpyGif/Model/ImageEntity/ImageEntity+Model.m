@@ -83,8 +83,7 @@ NSString *const kGifOriginalUrl = @"rating";
     return result;
 }
 #pragma mark - Fetchs
-+(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc
-{
++(NSArray *) fetchAllRequestWithMOC:(NSManagedObjectContext *)moc{
     NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:kImageEntity];
     
     NSError *error = nil;

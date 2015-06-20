@@ -90,8 +90,7 @@ NSString *const kCellIdentifier = @"collectionCell";
 -(void) loadCollectionCell{
     [self.collectionView registerClass:[DefaultCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifier];
 }
--(void) loadLayout
-{
+-(void) loadLayout{
     self.regularLayout = [[UICollectionViewFlowLayout alloc] init];
     self.regularLayout.minimumInteritemSpacing = 0;
     self.regularLayout.minimumLineSpacing = 0;
