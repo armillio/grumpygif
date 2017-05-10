@@ -10,6 +10,10 @@
 
 NSString *const kSearchCollectionView = @"SearchViewController";
 
+@interface DefaultCollectionViewCell()<CAAnimationDelegate>
+
+@end
+
 @implementation DefaultCollectionViewCell
 
 - (void)setupImageView{

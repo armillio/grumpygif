@@ -10,8 +10,4 @@
 
 @implementation EmptyCollectionViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
 @end
